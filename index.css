@@ -1,0 +1,430 @@
+body {
+    color: white;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Ícone do menu */
+nav ul {
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0;
+    display: flex;
+    background-color: #111;
+    position: relative;
+    z-index: 30; /* ícone sempre por cima do menu lateral */
+}
+
+nav a {
+    color: rgb(60,255,0);
+    text-decoration: none;
+    font-size: 2em;
+}
+
+/* Menu lateral (inicialmente escondido fora da tela) */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;           /* metade da tela */
+    height: 100%;
+    background-color: #808080; /* cinza sólido */
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    transform: translateX(-100%); /* totalmente fora da tela */
+    transition: transform 0.3s ease;
+    z-index: 20;          /* abaixo do ícone */
+}
+
+/* Menu ativo, deslizando da esquerda */
+#side-menu.show {
+    transform: translateX(0);
+}
+
+/* Receita dentro do menu lateral */
+#menu-receita {
+    color: black;        /* destaque */
+    font-size: 1.5em;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+#menu-receita:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo da página */
+h1 {
+    text-align: center;
+    color: rgb(60,255,0);
+    margin-top: 2rem;
+}
+
+.intro {
+    padding: 2rem;
+}
+
+/* Conteúdo da página */
+h1 {
+    text-align: center;
+    color: rgb(60,255,0);
+    margin-top: 2rem;
+    font-size: 2.5em; /* fonte maior para o título */
+}
+
+/* Texto da introdução */
+.intro {
+    padding: 2rem;
+    max-width: 800px;       /* largura máxima para não se estender demais */
+    margin: 2rem auto;      /* centraliza horizontalmente */
+    font-size: 1.2em;       /* fonte maior e mais legível */
+    line-height: 1.6;       /* deixa o texto mais compacto e fácil de ler */
+    transition: margin-left 0.3s ease;
+}
+
+/* Opcional: quando o menu abrir, empurra o conteúdo */
+#side-menu.show ~ .intro {
+    margin-left: 50%;
+    max-width: 50%;        /* mantém a largura dentro da área restante */
+}
+
+.receita-titulo {
+    text-align: center;
+    color: rgb(60, 255, 0); /* verde destaque */
+    font-size: 2.5em;       /* título grande */
+    margin-top: 2rem;
+}
+
+.receita-conteudo {
+    max-width: 800px;       /* largura confortável para leitura */
+    margin: 2rem auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: white;
+}
+
+
+
+.imagem-receita img {
+    display: block;       
+    margin: 1.5rem auto;  
+    max-width: 80%;       
+    height: auto;         
+    border-radius: 10px;  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+}
+
+.receita-titulo {
+    text-align: center;
+    color: rgb(60, 255, 0);
+    font-size: 2.5em;
+    margin-top: 2rem;
+}
+
+.imagem-receita img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.receita-conteudo {
+    max-width: 800px;
+    margin: 2rem auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: white;
+}
+
+.receita-titulo {
+    text-align: center;
+    color: rgb(60, 255, 0);
+    font-size: 2.5em;
+    margin-top: 2rem;
+}
+
+.imagem-receita img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.receita-conteudo {
+    max-width: 800px;       /* largura máxima do texto */
+    margin: 2rem auto;      /* centraliza horizontalmente */
+    font-size: 1.2em;       /* tamanho confortável da fonte */
+    line-height: 1.6;       /* espaçamento entre linhas */
+    color: white;
+    text-align: justify;     /* alinha texto dos dois lados para ficar mais organizado */
+}
+
+.receita-titulo {
+    text-align: center;
+    color: rgb(60, 255, 0);
+    font-size: 2.5em;
+    margin-top: 5rem;   /* muito mais espaço acima do título */
+    margin-bottom: 3rem; /* espaço maior abaixo do título */
+}
+
+.imagem-receita img {
+    display: block;
+    margin: 3rem auto;   /* espaço acima e abaixo da imagem */
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.receita-conteudo {
+    max-width: 800px;      
+    margin: 3rem auto;    /* espaço maior acima e abaixo do texto */
+    font-size: 1.2em;     
+    line-height: 1.8;     /* linhas um pouco mais espaçadas */
+    color: white;
+    text-align: justify;  
+}
+
+.imagem-receita.geleia-manga img {
+    display: block;
+    margin: 3rem auto;
+    max-width: 50%;   /* diminui a largura apenas da geleia */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+figure {
+    display: block;
+    text-align: center;
+    margin: 3rem auto;  /* mantém espaçamento da imagem */
+}
+
+figcaption {
+    font-size: 1em;
+    color: #ccc;        /* cor da legenda */
+    margin-top: 0.5rem; /* espaço entre imagem e legenda */
+    font-style: italic;  /* opcional, deixa a legenda mais elegante */
+}
+
+/* Imagem do bolo ainda maior */
+.imagem-receita.bolo-casca img {
+    display: block;
+    margin: 3rem auto;   /* centraliza e mantém espaçamento */
+    max-width: 100%;     /* agora ocupa praticamente toda a largura disponível */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+/* Imagem do brigadeiro */
+.imagem-receita.brigadeiro-casca img {
+    display: block;
+    margin: 3rem auto;
+    max-width: 80%;   /* tamanho proporcional */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+body {
+    color: white;
+    background-color: black; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+h1.receita-titulo {
+    text-align: center;
+    color: rgb(60, 255, 0);
+    margin-top: 3rem;
+}
+
+.intro {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.receita-conteudo {
+    max-width: 800px;
+    margin: 2rem auto;
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.imagem-receita img {
+    display: block;
+    margin: 2rem auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Tamanhos específicos */
+.imagem-receita.bolo-casca img {
+    max-width: 100%;
+}
+
+.imagem-receita.geleia-manga img {
+    max-width: 50%;
+}
+
+.imagem-receita.brigadeiro-casca img {
+    max-width: 80%;
+}
+
+/* Fonte elegante para o corpo da página */
+body {
+    color: white;
+    background-color: black; 
+    font-family: 'Georgia', 'Times New Roman', serif; /* fonte elegante */
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* Texto principal destacado */
+.intro-principal {
+    max-width: 900px;
+    margin: 2rem auto;
+    font-size: 1.3em;         /* maior que o padrão */
+    font-weight: bold;        /* mais destacado */
+    text-align: center;       /* centralizado */
+    color: rgb(60, 255, 0);   /* verde destaque */
+    background-color: rgba(0,0,0,0.6); /* leve fundo para destacar */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Texto de recepção destacado */
+.intro.destaque {
+    max-width: 900px;
+    margin: 2rem auto;
+    font-size: 1.4em;          /* maior que o padrão */
+    font-weight: bold;         /* mais destacado */
+    font-family: 'Georgia', 'Times New Roman', serif; /* fonte elegante */
+    text-align: center;        /* centralizado */
+    color: rgb(57, 255, 84);    /* verde destaque */
+    background-color: rgba(0, 0, 0, 0.6); /* fundo leve para destacar */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    line-height: 1.8;
+}
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;              /* metade esquerda da tela */
+    height: 100%;
+    background-color: #ccc;   /* fundo cinza */
+    padding-top: 60px;        /* espaço do topo */
+    transform: translateX(-100%); /* escondido inicialmente */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#side-menu.show {
+    transform: translateX(0); /* mostra o menu */
+}
+
+#side-menu a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+    font-weight: bold;
+}
+
+#side-menu a:hover {
+    background-color: #bbb;
+}
+
+#menu-icon a {
+    position: relative;
+    z-index: 1100; /* maior que o z-index do side-menu (1000) */
+}
+
+/* Menu lateral */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;              /* metade esquerda */
+    height: 100%;
+    background-color: #ccc;   /* fundo cinza */
+    padding-top: 60px;        /* espaço do topo */
+    transform: translateX(-100%); /* escondido inicialmente */
+    transition: transform 0.3s ease;
+    z-index: 1000;            /* atrás do ícone */
+    display: flex;
+    flex-direction: column;
+}
+
+#side-menu.show {
+    transform: translateX(0); /* mostra o menu */
+}
+
+/* Links do menu */
+#side-menu a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+    font-weight: bold;
+}
+
+#side-menu a:hover {
+    background-color: #bbb;
+}
+
+/* Ícone das 3 barras */
+#menu-icon a {
+    position: fixed; /* para ficar sempre visível ao rolar a página */
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    color: rgb(60, 255, 0);
+    z-index: 1100; /* acima do menu lateral */
+    text-decoration: none;
+}
+
+/* Botão FECHAR dentro do menu lateral */
+#fechar-menu {
+    font-size: 2em;           /* tamanho maior */
+    color: #ff4d4d;           /* vermelho chamativo */
+    font-weight: bold;         /* destaque */
+    text-decoration: none;     /* remove sublinhado */
+    margin-bottom: 2rem;       /* espaço abaixo */
+}
+
+#fechar-menu:hover {
+    color: #ff1a1a;           /* vermelho mais intenso ao passar o mouse */
+}
+
+/* Links Receita e Benefícios no menu lateral */
+#side-menu a:not(#fechar-menu) {
+    font-size: 2em;           /* tamanho maior */
+    color: black;             /* cor normal */
+    font-weight: bold;         
+    text-decoration: none;     
+    margin-bottom: 2rem;       
+    transition: color 0.3s ease; /* efeito suave */
+}
+
+/* Cor verde ao passar o mouse */
+#side-menu a:not(#fechar-menu):hover {
+    color: #39ff54;           /* verde quando o mouse passar */
+}

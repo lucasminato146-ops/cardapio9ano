@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li id="menu-icon">
+            <a href="#" onclick="abrirMenu(event)">&#9776;</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Menu lateral (metade esquerda), inicialmente escondido -->
+<div id="side-menu">
+    <!-- Botão de fechar -->
+    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
+
+    <a href="receita.html">Receita</a>
+   
+</div>
+
+<h1>Cardápio do 9° Ano</h1>
+
+<div class="intro destaque">
+    <p>
+        <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
+        Nós, alunos, nos dedicamos a criar receitas criativas, saborosas 
+        e sustentáveis para toda a turma. Explore, aprenda e experimente
+        novas formas de cozinhar, aproveitando ao máximo os alimentos e 
+        transformando a cozinha em um espaço de aprendizado e diversão.
+    </p>
+</div>
+
+<script>
+// Função para abrir o menu
+function abrirMenu(event) {
+    event.preventDefault();
+    const sideMenu = document.getElementById('side-menu');
+    sideMenu.classList.add('show'); // abre o menu
+}
+
+// Função para fechar o menu
+function fecharMenu(event) {
+    event.preventDefault();
+    const sideMenu = document.getElementById('side-menu');
+    sideMenu.classList.remove('show'); // fecha o menu
+}
+</script>
+</body>
+</html>
+
+<div id="side-menu">
+    <a href="receita.html">Receita</a>
+    <a href="#beneficios">Benefícios</a>
+    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
+</div>
+

@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cardápio do 9º Ano</title>
 <link rel="stylesheet" href="index.css">
 <style>
-/* ===== Estilo do Menu Lateral ===== */
+/* ===== Menu Lateral ===== */
 #side-menu {
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -290px;
     width: 250px;
     height: 100%;
-    background-color: #333;
+    background-color: #333333;
     overflow-x: hidden;
     transition: 0.3s;
-    padding-top: 60px;
+    padding-top: 90px;
     z-index: 1000;
 }
-#side-menu.show { 
-    left: 0;
-}
+#side-menu.show { left: 0; }
 #side-menu a {
     padding: 10px 20px;
     text-decoration: none;
-    font-size: 16px;
-    color: white;
-    display: block;
-    transition: 0.2s;
-}
-#side-menu a:hover {
-    background-color: #41414159;
-}
-#side-menu a[href="mododereceita.html"] {
     font-size: 14px;
+    color: white !important;
+    display: block;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    transition: 0.3s;
 }
+#side-menu a:hover { background-color: rgba(255, 255, 255, 0.15); }
 #fechar-menu {
     font-size: 2em;
     color: #ff4d4d;
@@ -43,25 +39,53 @@
     text-decoration: none;
     margin-bottom: 2rem;
 }
-#fechar-menu:hover {
-    color: #ff1a1a;
+#fechar-menu:hover { color: #ff1a1a; }
+
+/* ===== Ícone do Menu ===== */
+#menu-icon a {
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    text-decoration: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    cursor: pointer;
 }
 
-/* ===== Estilo do Título e Subtítulo ===== */
+/* ===== Títulos e Subtítulos ===== */
 h1 {
-    text-align: center;
-    margin-top: 40px;
-    color: rgb(60,255,0);
+    color: white;
+    margin: 0;
 }
 .subtitulo {
     text-align: center;
     font-size: 20px;
-    color: #00ff00;
+    color: white;
     margin-top: 10px;
     font-weight: normal;
 }
+.titulo-wrapper {
+     font-size: 10px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.titulo-marcado {
+    background-color: blue;
+    padding: 0.2em 0.6em;
+    border-radius: 6px;
+    display: inline-block;
+    color: white;
+}
 
-/* ===== Estilo das Imagens ===== */
+/* ===== Imagens ===== */
+.img-grande {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
 .img-feira {
     display: block;
     margin: 20px auto;
@@ -74,7 +98,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px; /* aproxima mais as imagens */
+    gap: 15px;
     margin: 2rem auto;
 }
 .imagem-galeria figure {
@@ -86,21 +110,92 @@ h1 {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+/* ===== Botão VER MAIS ===== */
+.btn-vermais {
+    background-color: blue;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-vermais:hover {
+    background-color: #0044cc;
 }
 
-/* ===== Estilo do Texto ===== */
+/* ===== Texto ===== */
 .intro.destaque {
     max-width: 800px;
     margin: 20px auto;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
+    color: white;
+}
+
+/* ===== Agradecimento final ===== */
+.agradecimento {
+    text-align: center;
+    color: white;
+    margin: 30px auto 40px;
+    font-size: 16px;
+}
+
+/* ===== Modal ===== */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 90%;
+    max-width: 500px;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    text-align: left;
+    z-index: 1200;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+.modal.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+.modal h3 { margin-top: 0; }
+.modal .close-btn {
+    display: block;
+    text-align: right;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ff4d4d;
+}
+.modal .close-btn:hover { color: #ff1a1a; }
+
+/* ===== Base ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #111;
+}
+.container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 </style>
 </head>
 <body>
 
-<!-- Menu -->
+<!-- Ícone do Menu -->
 <nav>
     <ul>
         <li id="menu-icon">
@@ -116,46 +211,63 @@ h1 {
     <a href="beneficios.html">Benefícios</a>
 </div>
 
-<!-- Título da Feira -->
-<h1>Feira de Ciências 9° ano</h1>
-<h2 class="subtitulo">Descubra nossas receitas criativas e sustentáveis</h2>
+<!-- Conteúdo Principal -->
+<div class="container">
 
-<!-- Imagem abaixo do título -->
-<img src="image copy 3.png" alt="Imagem da feira" class="img-feira">
+    <!-- Imagem grande de topo -->
+    <img src="image copy 4.png" 
+         alt="Imagem Grande" 
+         style="width:100%; max-height:500px; object-fit:cover; opacity:0.8; display:block;">
 
-<!-- Texto de introdução -->
-<div class="intro destaque">
-    <p>
-        <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
-        Nós, alunos, nos dedicamos a criar receitas criativas, saborosas 
-        e sustentáveis para toda a turma. Explore, aprenda e experimente
-        novas formas de cozinhar, aproveitando ao máximo os alimentos e 
-        transformando a cozinha em um espaço de aprendizado e diversão.
-    </p>
+    <div class="titulo-wrapper">
+        <h1 class="titulo-marcado">Feira de Ciências 9° ano</h1>
+    </div>
+
+    <h2 class="subtitulo">Descubra nossas receitas criativas e sustentáveis</h2>
+
+    <img src="image copy 3.png" alt="Imagem da feira" class="img-feira">
+
+    <div class="intro destaque">
+        <p>
+            <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
+            Nós, alunos, nos dedicamos a criar receitas criativas, saborosas 
+            e sustentáveis para toda a turma. Explore, aprenda e experimente
+            novas formas de cozinhar.
+        </p>
+    </div>
+
+    <div class="imagem-galeria">
+        <figure onclick="abrirModal('Bolo de Casca de Banana 🍌', 'Um bolo nutritivo e sustentável, que utiliza toda a banana, incluindo as cascas. Rico em fibras e potássio, é saboroso, econômico e reduz o desperdício de alimentos.')">
+            <img src="image.png" alt="Bolo de Casca de Banana">
+            <figcaption>Bolo de Casca de Banana 🍌</figcaption>
+            <div class="btn-vermais">VER MAIS</div>
+        </figure>
+        <figure onclick="abrirModal('Geleia de Manga 🥭', 'Geleia natural feita com mangas maduras, sem conservantes. Mantém o sabor e os nutrientes da fruta, sendo rica em vitaminas, doce naturalmente e uma opção saudável para o dia a dia.')">
+            <img src="image copy.png" alt="Geleia de Manga">
+            <figcaption>Geleia de Manga 🥭</figcaption>
+            <div class="btn-vermais">VER MAIS</div>
+        </figure>
+        <figure onclick="abrirModal('Brigadeiro de Casca de Banana 🍫', 'Uma versão mais saudável do brigadeiro tradicional, feito com cascas de banana. Menos açúcar, mais fibras e aproveitamento total da fruta, mantendo o sabor delicioso de chocolate.')">
+            <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
+            <figcaption>Brigadeiro de Casca de Banana 🍫</figcaption>
+            <div class="btn-vermais">VER MAIS</div>
+        </figure>
+    </div>
+
+    <div class="agradecimento">
+        Obrigado por acessar nossas receitas! Para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
+    </div>
+
 </div>
 
-<!-- Galeria de Imagens -->
-<div class="imagem-galeria">
-    <figure>
-        <img src="image.png" alt="Bolo de Casca de Banana">
-        <figcaption>Bolo de Casca de Banana 🍌</figcaption>
-    </figure>
-    <figure>
-         <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
-        <figcaption>Brigadeiro de Casca de Banana 🍫</figcaption>
-    </figure>
-    <figure>
-        <img src="image copy.png" alt="Geleia de Manga">
-        <figcaption>Geleia de Manga 🥭</figcaption>
-    </figure>
+<!-- Modal -->
+<div class="modal" id="modal">
+    <span class="close-btn" onclick="fecharModal()">&times;</span>
+    <h3 id="modal-title"></h3>
+    <p id="modal-content"></p>
 </div>
 
-<!-- Agradecimento -->
-<div style="text-align:center; margin:2rem; font-weight:bold; color:#00ff00;">
-    Obrigado por acessar nossas receitas! para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
-</div>
-
-<!-- Script para abrir/fechar menu -->
+<!-- Script -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();
@@ -165,7 +277,18 @@ function fecharMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
 }
+
+function abrirModal(titulo, conteudo) {
+    document.getElementById('modal-title').innerText = titulo;
+    document.getElementById('modal-content').innerText = conteudo;
+    document.getElementById('modal').classList.add('show');
+}
+function fecharModal() {
+    document.getElementById('modal').classList.remove('show');
+}
 </script>
 
 </body>
 </html>
+
+

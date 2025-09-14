@@ -5,74 +5,240 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Receitas do 9º Ano</title>
 <link rel="stylesheet" href="index.css">
+<style>
+/* ===== Estilo do Menu Lateral ===== */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* escondido inicialmente */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+#side-menu.show {
+    left: 0; /* aparece quando aberto */
+}
+
+#side-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+#side-menu a:hover {
+    background-color: #41414159;
+}
+
+/* Link específico Modo de Preparo */
+#side-menu a[href="mododereceita.html"] {
+    font-size: 14px; /* menor que os outros links */
+}
+
+/* Botão FECHAR */
+#fechar-menu {
+    font-size: 2em;
+    color: #ff4d4d;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+#fechar-menu:hover {
+    color: #ff1a1a;
+}
+
+/* ===== Estilo adicional para esta página ===== */
+h1 {
+    text-align: center;
+    color: rgb(60, 255, 0);
+}
+
+h2.subtitulo {
+    text-align: center !important; /* força o centro */
+    font-size: 20px;
+    color: #00ff00;
+    margin-top: 10px;
+}
+
+.intro.destaque {
+    max-width: 900px;
+    margin: 2rem auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.imagem-receita img {
+    display: block;
+    margin: 2rem auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.receita-conteudo {
+    max-width: 800px;
+    margin: 1rem auto 3rem auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: white;
+    text-align: left;
+    padding: 0 1rem;
+}
+</style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">&#8592; Voltar</a></li>
-        </ul>
-    </nav>
 
-    <!-- Texto de recepção destacado -->
+<!-- Ícone do Menu -->
+<nav>
+    <ul>
+        <li id="menu-icon">
+            <a href="#" onclick="abrirMenu(event)">&#9776;</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Menu Lateral -->
+<div id="side-menu">
+    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
+    <a href="index.html">Página Inicial</a>
+    <a href="beneficios.html">Benefícios</a>
+</div>
+
+<!-- Texto de recepção destacado -->
 <div class="intro destaque">
     <p>
         <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
-        Nós, alunos, nos dedicamos a criar receitas criativas, saborosas e sustentáveis para toda a turma. Explore, aprenda e experimente novas formas de cozinhar, aproveitando ao máximo os alimentos e transformando a cozinha em um espaço de aprendizado e diversão.
+        Descubra nossas receitas criativas e sustentáveis.
     </p>
 </div>
 
+<!-- Receita 1: Bolo de Casca de Banana -->
+<h1 class="receita-titulo">Bolo de Casca de Banana 🍌</h1>
+<h2 class="subtitulo">como fazer na sua casa</h2>
 
-    <!-- Receita 1: Bolo de Casca de Banana -->
-    <h1 class="receita-titulo">Bolo de Casca de Banana 🍌</h1>
-
-    <div class="receita-conteudo">
-        <p>
-            O <strong>Bolo de Casca de Banana</strong> é uma receita deliciosa e sustentável, que aproveita as cascas da banana para criar um bolo macio e nutritivo. Primeiro, as cascas são bem lavadas e picadas. Em seguida, são misturadas com ovos, açúcar, farinha, óleo e fermento, formando uma massa homogênea. A mistura é colocada em uma forma untada e levada ao forno até que fique dourada e firme por fora, mas macia por dentro.
-        </p>
-        <p>
-            O resultado é um bolo saboroso, com um toque adocicado natural da banana, perfeito para lanches ou café da tarde, além de ser uma forma criativa de reduzir o desperdício de alimentos.
-        </p>
-    </div>
-
-    <div class="imagem-receita bolo-casca">
-        <img src="image.png" alt="Bolo de Casca de Banana">
-    </div>
-
-    <!-- Receita 2: Geleia de Manga -->
-    <h1 class="receita-titulo">Geleia de Manga 🥭</h1>
-
-    <div class="receita-conteudo">
-        <p>
-            A <strong>Geleia de Manga</strong> é uma opção doce e natural para acompanhar pães, bolos ou torradas. Começa-se cortando mangas maduras em pedaços pequenos, que são então cozidos em fogo baixo com açúcar e um pouco de suco de limão até atingir a consistência de geleia.
-        </p>
-        <p>
-            O resultado é uma geleia colorida e saborosa, com o doce natural da manga e um toque cítrico, perfeita para lanches ou cafés da manhã. Além disso, é uma forma prática de aproveitar mangas maduras que poderiam se perder.
-        </p>
-    </div>
-
-    <div class="imagem-receita geleia-manga">
-        <img src="image copy.png" alt="Geleia de Manga">
-    </div>
-
-    <!-- Receita 3: Brigadeiro de Casca de Banana -->
-    <h1 class="receita-titulo">Brigadeiro de Casca de Banana 🍫</h1>
-
-   
-
-
-
-<!-- Texto da receita -->
 <div class="receita-conteudo">
-    <p>
-        O <strong>Brigadeiro de Casca de Banana</strong> é uma versão criativa e sustentável do tradicional brigadeiro. As cascas de banana são bem lavadas e cozidas com leite, cacau em pó e açúcar, até formar um creme homogêneo e saboroso. Em seguida, a mistura é deixada esfriar e enrolada em pequenas bolinhas, que podem ser cobertas com chocolate granulado.
-    </p>
-    <p>
-        O resultado é um doce macio, com sabor intenso de chocolate e um leve toque adocicado natural da banana. Além de delicioso, é uma ótima forma de aproveitar cascas de banana que normalmente seriam descartadas.
-    </p>
+    <h3>Ingredientes:</h3>
+    <ul>
+        <li>3 bananas maduras</li>
+        <li>2 cascas de banana (bem lavadas)</li>
+        <li>2 ovos</li>
+        <li>1 xícara de açúcar</li>
+        <li>1/2 xícara de óleo vegetal</li>
+        <li>1 xícara de farinha de trigo</li>
+        <li>1 colher de sopa de fermento em pó</li>
+        <li>1 pitada de sal</li>
+        <li>Canela a gosto (opcional)</li>
+    </ul>
+
+    <h3>Modo de Preparo:</h3>
+    <ol>
+        <li>Lave bem as cascas das bananas, retire as pontas e pique em pedaços pequenos.</li>
+        <li>Coloque as cascas no liquidificador com os ovos e o óleo. Bata até formar um creme homogêneo.</li>
+        <li>Adicione o açúcar e bata novamente.</li>
+        <li>Em uma tigela, peneire a farinha, o fermento e o sal. Misture delicadamente ao creme do liquidificador.</li>
+        <li>Unte uma forma com manteiga e farinha, despeje a massa e leve ao forno pré-aquecido a 180°C por 30-40 minutos.</li>
+        <li>Retire do forno, espere esfriar e desenforme. Polvilhe canela ou açúcar de confeiteiro se desejar.</li>
+    </ol>
+
+    <p><strong>Dica:</strong> Você pode adicionar cacau em pó para uma versão de chocolate ou pedaços de banana para deixar mais doce.</p>
 </div>
 
-<!-- Imagem do brigadeiro -->
+<div class="imagem-receita bolo-casca">
+    <img src="image.png" alt="Bolo de Casca de Banana">
+</div>
+
+<!-- Receita 2: Geleia de Manga -->
+<h1 class="receita-titulo">Geleia de Manga 🥭</h1>
+<h2 class="subtitulo">como fazer na sua casa</h2>
+
+<div class="receita-conteudo">
+    <h3>Ingredientes:</h3>
+    <ul>
+        <li>3 mangas maduras</li>
+        <li>1/2 xícara de açúcar (ou a gosto)</li>
+        <li>Suco de 1/2 limão</li>
+        <li>1/2 xícara de água (opcional, para ajustar a consistência)</li>
+    </ul>
+
+    <h3>Modo de Preparo:</h3>
+    <ol>
+        <li>Descasque as mangas e corte em pedaços pequenos.</li>
+        <li>Coloque os pedaços de manga em uma panela com o açúcar e o suco de limão.</li>
+        <li>Cozinhe em fogo baixo, mexendo sempre, até que a manga comece a desmanchar e formar uma pasta.</li>
+        <li>Se desejar uma geleia mais líquida, adicione a água aos poucos durante o cozimento.</li>
+        <li>Quando atingir a consistência desejada, retire do fogo e deixe esfriar.</li>
+        <li>Armazene em um pote limpo e fechado na geladeira.</li>
+    </ol>
+
+    <p><strong>Dica:</strong> Você pode adicionar raspas de limão ou gengibre para um sabor diferenciado. Essa geleia é ótima para acompanhar pães, torradas ou bolos.</p>
+</div>
+
+<div class="imagem-receita geleia-manga">
+    <img src="image copy.png" alt="Geleia de Manga">
+</div>
+
+<!-- Receita 3: Brigadeiro de Casca de Banana -->
+<h1 class="receita-titulo">Brigadeiro de Casca de Banana 🍫</h1>
+<h2 class="subtitulo">como fazer na sua casa</h2>
+
+<div class="receita-conteudo">
+    <h3>Ingredientes:</h3>
+    <ul>
+        <li>2 cascas de banana maduras</li>
+        <li>1 lata de leite condensado</li>
+        <li>2 colheres de sopa de cacau em pó</li>
+        <li>1 colher de sopa de manteiga</li>
+        <li>Chocolate granulado para enrolar</li>
+    </ul>
+
+    <h3>Modo de Preparo:</h3>
+    <ol>
+        <li>Lave bem as cascas de banana e corte em pedaços pequenos.</li>
+        <li>Coloque as cascas, o leite condensado, o cacau em pó e a manteiga em uma panela.</li>
+        <li>Cozinhe em fogo médio, mexendo sempre, até que a mistura desgrude do fundo da panela.</li>
+        <li>Deixe a mistura esfriar um pouco.</li>
+        <li>Enrole pequenas bolinhas e passe no chocolate granulado.</li>
+    </ol>
+
+    <p><strong>Dica:</strong> Para um sabor ainda mais intenso, você pode adicionar um pouco de essência de baunilha ou um toque de canela.</p>
+</div>
+
 <div class="imagem-receita brigadeiro-casca">
     <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
 </div>
 
+<!-- Agradecimento no final -->
+<div style="text-align:center; margin:2rem; font-weight:bold; color:#00ff00;">
+    Obrigado por acessar nossas receitas!
+</div>
+
+<!-- Script para abrir/fechar menu -->
+<script>
+function abrirMenu(event) {
+    event.preventDefault();
+    document.getElementById('side-menu').classList.add('show');
+}
+
+function fecharMenu(event) {
+    event.preventDefault();
+    document.getElementById('side-menu').classList.remove('show');
+}
+</script>
+
+</body>
+</html>

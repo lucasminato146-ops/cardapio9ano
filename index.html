@@ -3,10 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cardápio</title>
+<title>Cardápio do 9º Ano</title>
 <link rel="stylesheet" href="index.css">
+<style>
+/* ===== Estilo do Menu Lateral ===== */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+#side-menu.show { 
+    left: 0;
+}
+#side-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+#side-menu a:hover {
+    background-color: #41414159;
+}
+#side-menu a[href="mododereceita.html"] {
+    font-size: 14px;
+}
+#fechar-menu {
+    font-size: 2em;
+    color: #ff4d4d;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+#fechar-menu:hover {
+    color: #ff1a1a;
+}
+
+/* ===== Estilo do Título e Subtítulo ===== */
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: rgb(60,255,0);
+}
+.subtitulo {
+    text-align: center;
+    font-size: 20px;
+    color: #00ff00;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+/* ===== Estilo das Imagens ===== */
+.img-feira {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.imagem-galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* aproxima mais as imagens */
+    margin: 2rem auto;
+}
+.imagem-galeria figure {
+    text-align: center;
+    color: white;
+}
+.imagem-galeria img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* ===== Estilo do Texto ===== */
+.intro.destaque {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+</style>
 </head>
 <body>
+
+<!-- Menu -->
 <nav>
     <ul>
         <li id="menu-icon">
@@ -15,17 +109,21 @@
     </ul>
 </nav>
 
-<!-- Menu lateral (metade esquerda), inicialmente escondido -->
+<!-- Menu Lateral -->
 <div id="side-menu">
-    <!-- Botão de fechar -->
     <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
-
-    <a href="receita.html">Receita</a>
-   
+    <a href="receita.html">Modo de preparo das receitas</a>
+    <a href="beneficios.html">Benefícios</a>
 </div>
 
-<h1>Cardápio do 9° Ano</h1>
+<!-- Título da Feira -->
+<h1>Feira de Ciências 9° ano</h1>
+<h2 class="subtitulo">Descubra nossas receitas criativas e sustentáveis</h2>
 
+<!-- Imagem abaixo do título -->
+<img src="image copy 3.png" alt="Imagem da feira" class="img-feira">
+
+<!-- Texto de introdução -->
 <div class="intro destaque">
     <p>
         <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
@@ -36,27 +134,38 @@
     </p>
 </div>
 
-<script>
-// Função para abrir o menu
-function abrirMenu(event) {
-    event.preventDefault();
-    const sideMenu = document.getElementById('side-menu');
-    sideMenu.classList.add('show'); // abre o menu
-}
-
-// Função para fechar o menu
-function fecharMenu(event) {
-    event.preventDefault();
-    const sideMenu = document.getElementById('side-menu');
-    sideMenu.classList.remove('show'); // fecha o menu
-}
-</script>
-</body>
-</html>
-
-<div id="side-menu">
-    <a href="receita.html">Receita</a>
-    <a href="#beneficios">Benefícios</a>
-    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
+<!-- Galeria de Imagens -->
+<div class="imagem-galeria">
+    <figure>
+        <img src="image.png" alt="Bolo de Casca de Banana">
+        <figcaption>Bolo de Casca de Banana 🍌</figcaption>
+    </figure>
+    <figure>
+         <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
+        <figcaption>Brigadeiro de Casca de Banana 🍫</figcaption>
+    </figure>
+    <figure>
+        <img src="image copy.png" alt="Geleia de Manga">
+        <figcaption>Geleia de Manga 🥭</figcaption>
+    </figure>
 </div>
 
+<!-- Agradecimento -->
+<div style="text-align:center; margin:2rem; font-weight:bold; color:#00ff00;">
+    Obrigado por acessar nossas receitas! para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
+</div>
+
+<!-- Script para abrir/fechar menu -->
+<script>
+function abrirMenu(event) {
+    event.preventDefault();
+    document.getElementById('side-menu').classList.add('show');
+}
+function fecharMenu(event) {
+    event.preventDefault();
+    document.getElementById('side-menu').classList.remove('show');
+}
+</script>
+
+</body>
+</html>

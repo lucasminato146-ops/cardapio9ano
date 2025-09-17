@@ -1,25 +1,23 @@
-chat gpt agora mudando de assunto na primeita pagina eu mais ou menos no meio dela quando a pessoa clicar em "ver mais" aparece o menu correto. ai eu quero que quando clicar o fundo fique meio opaco e enbaçado 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<title>Cardápio do 9º Ano</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Benefícios do 9º Ano</title>
 <link rel="stylesheet" href="index.css">
 <style>
 /* ===== Menu Lateral ===== */
 #side-menu {
     position: fixed;
     top: 0;
-    left: -290px;
+    left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #333333;
+    background-color: #333;
     overflow-x: hidden;
     transition: 0.3s;
-    padding-top: 90px;
-    z-index: 1000;
+    padding-top: 60px;
+    z-index: 1001; /* acima do overlay */
 }
 #side-menu.show { left: 0; }
 #side-menu a {
@@ -33,185 +31,85 @@ chat gpt agora mudando de assunto na primeita pagina eu mais ou menos no meio de
     border-radius: 5px;
     transition: 0.3s;
 }
-#side-menu a:hover { background-color: rgba(255, 255, 255, 0.15); }
+#side-menu a:hover { background-color: rgba(255,255,255,0.15); }
 #fechar-menu {
     font-size: 2em;
-    color: #ff4d4d;
+    color: white;
     font-weight: bold;
     text-decoration: none;
     margin-bottom: 2rem;
 }
-#fechar-menu:hover { color: #ff1a1a; }
+#fechar-menu:hover { color: #ddd; }
 
 /* ===== Ícone do Menu ===== */
 #menu-icon a {
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 2em;
     text-decoration: none;
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 1100;
+    z-index: 1102; /* acima do overlay */
     cursor: pointer;
 }
 
-/* ===== Títulos e Subtítulos ===== */
-h1 {
-    color: white;
-    margin: 0;
-}
-.subtitulo {
-    text-align: center;
-    font-size: 20px;
-    color: white;
-    margin-top: 10px;
-    font-weight: normal;
-}
-.titulo-wrapper {
-     font-size: 10px;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-.titulo-marcado {
-    background-color: blue;
-    padding: 0.2em 0.6em;
-    border-radius: 6px;
-    display: inline-block;
-    color: white;
-}
-
-/* ===== Imagens ===== */
-.img-grande {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0;
-}
-.img-feira {
-    display: block;
-    margin: 20px auto;
-    max-width: 80%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-.imagem-galeria {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 2rem auto;
-}
-.imagem-galeria figure {
-    text-align: center;
-    color: white;
-}
-.imagem-galeria img {
-    max-width: 250px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    cursor: pointer;
-}
-/* ===== Botão VER MAIS ===== */
-.btn-vermais {
-    background-color: blue;
-    color: white;
-    padding: 6px 14px;
-    border-radius: 6px;
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 14px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.btn-vermais:hover {
-    background-color: #0044cc;
-}
-
-/* ===== Texto ===== */
-.intro.destaque {
-    max-width: 800px;
-    margin: 20px auto;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    color: white;
-}
-
-/* ===== Agradecimento final ===== */
-.agradecimento {
-    text-align: center;
-    color: white;
-    margin: 30px auto 20px;
-    font-size: 16px;
-}
-
-/* ===== Botão próxima página ===== */
-.btn-proxima {
-    background-color: blue;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 18px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 20px auto;
-    transition: background-color 0.3s;
-}
-.btn-proxima:hover {
-    background-color: #0044cc;
-}
-
-/* ===== Modal ===== */
-.modal {
+/* ===== Overlay ===== */
+#overlay {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 90%;
-    max-width: 500px;
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    text-align: left;
-    z-index: 1200;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* fundo semi-opaco */
+    backdrop-filter: blur(5px); /* efeito embaçado */
+    z-index: 1000; /* atrás do menu, acima do conteúdo */
+    display: none;
+    transition: 0.3s;
 }
-.modal.show {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-.modal h3 { margin-top: 0; }
-.modal .close-btn {
-    display: block;
-    text-align: right;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #ff4d4d;
-}
-.modal .close-btn:hover { color: #ff1a1a; }
 
-/* ===== Base ===== */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #111;
-}
+/* ===== Conteúdo ===== */
 .container {
-    position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+p {
+    color: white;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ===== Botão ===== */
+.botao-inicio {
+    background-color: blue; 
+    color: white; 
+    padding: 12px 24px; 
+    border-radius: 6px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    display: inline-block;
+    transition: 0.3s;
+}
+.botao-inicio:hover { background-color: darkblue; }
+
+body {
+    background-color: #111;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 </style>
 </head>
 <body>
+
+<!-- Overlay -->
+<div id="overlay" onclick="fecharMenu()"></div>
 
 <!-- Ícone do Menu -->
 <nav>
@@ -225,91 +123,38 @@ body, html {
 <!-- Menu Lateral -->
 <div id="side-menu">
     <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
-    <a href="receita.html">Modo de preparo das receitas</a>
-    <a href="beneficios.html">Benefícios</a>
+    <a href="index.html">Página Inicial</a>
+    <a href="receita.html">Receitas</a>
 </div>
 
 <!-- Conteúdo Principal -->
 <div class="container">
+    <h1>Benefícios das Receitas Sustentáveis</h1>
+    <p>
+        Nossas receitas aproveitam integralmente os alimentos, reduzindo o desperdício,
+        garantindo mais nutrientes e promovendo hábitos saudáveis. Além disso, estimulam
+        a criatividade na cozinha e o consumo consciente.
+    </p>
 
-    <!-- Imagem grande de topo -->
-    <img src="image copy 4.png" 
-         alt="Imagem Grande" 
-         style="width:100%; max-height:500px; object-fit:cover; opacity:0.8; display:block;">
-
-    <div class="titulo-wrapper">
-        <h1 class="titulo-marcado">Feira de Ciências 9° ano</h1>
+    <!-- Botão para voltar ao início -->
+    <div style="text-align:center; margin-top: 30px;">
+        <a href="index.html" class="botao-inicio">Voltar para o Início</a>
     </div>
-
-    <h2 class="subtitulo">Descubra nossas receitas criativas e sustentáveis</h2>
-
-    <img src="image copy 3.png" alt="Imagem da feira" class="img-feira">
-
-    <div class="intro destaque">
-        <p>
-            <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
-            Nós, alunos, nos dedicamos a criar receitas criativas, saborosas 
-            e sustentáveis para toda a turma. Explore, aprenda e experimente
-            novas formas de cozinhar.
-        </p>
-    </div>
-
-    <div class="imagem-galeria">
-        <figure onclick="abrirModal('Bolo de Casca de Banana 🍌', 'Um bolo nutritivo e sustentável, que utiliza toda a banana, incluindo as cascas. Rico em fibras e potássio, é saboroso, econômico e reduz o desperdício de alimentos.')">
-            <img src="image.png" alt="Bolo de Casca de Banana">
-            <figcaption>Bolo de Casca de Banana 🍌</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-        <figure onclick="abrirModal('Geleia de Manga 🥭', 'Geleia natural feita com mangas maduras, sem conservantes. Mantém o sabor e os nutrientes da fruta, sendo rica em vitaminas, doce naturalmente e uma opção saudável para o dia a dia.')">
-            <img src="image copy.png" alt="Geleia de Manga">
-            <figcaption>Geleia de Manga 🥭</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-        <figure onclick="abrirModal('Brigadeiro de Casca de Banana 🍫', 'Uma versão mais saudável do brigadeiro tradicional, feito com cascas de banana. Menos açúcar, mais fibras e aproveitamento total da fruta, mantendo o sabor delicioso de chocolate.')">
-            <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
-            <figcaption>Brigadeiro de Casca de Banana 🍫</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-    </div>
-
-    <div class="agradecimento">
-        Obrigado por acessar nossas receitas! Para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
-    </div>
-
-    <!-- Botão para próxima página -->
-    <div style="text-align:center;">
-        <a href="receita.html" class="btn-proxima">Click para próxima página</a>
-    </div>
-
 </div>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-    <span class="close-btn" onclick="fecharModal()">&times;</span>
-    <h3 id="modal-title"></h3>
-    <p id="modal-content"></p>
-</div>
-
-<!-- Script -->
+<!-- Script para abrir/fechar menu com overlay -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
+    document.getElementById('overlay').style.display = 'block';
 }
 function fecharMenu(event) {
-    event.preventDefault();
+    if(event) event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
+    document.getElementById('overlay').style.display = 'none';
 }
-
-function abrirModal(titulo, conteudo) {
-    document.getElementById('modal-title').innerText = titulo;
-    document.getElementById('modal-content').innerText = conteudo;
-    document.getElementById('modal').classList.add('show');
-}
-function fecharModal() {
-    document.getElementById('modal').classList.remove('show');
-}
-</script> 
+</script>
 
 </body>
 </html>

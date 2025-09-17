@@ -62,8 +62,9 @@
     height: 100%;
     background: rgba(0,0,0,0.5); /* fundo semi-opaco */
     backdrop-filter: blur(5px); /* efeito embaçado */
-    z-index: 1000; /* atrás do menu, acima do conteúdo */
+    z-index: 1000; /* atrás do menu e modal */
     display: none;
+    transition: 0.3s;
 }
 
 /* ===== Títulos e Subtítulos ===== */
@@ -106,7 +107,7 @@ body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #111; 
 <body>
 
 <!-- Overlay -->
-<div id="overlay" onclick="fecharMenu()"></div>
+<div id="overlay" onclick="fecharModal()"></div>
 
 <!-- Ícone do Menu -->
 <nav>
@@ -192,9 +193,14 @@ function abrirModal(titulo, conteudo) {
     document.getElementById('modal-title').innerText = titulo;
     document.getElementById('modal-content').innerText = conteudo;
     document.getElementById('modal').classList.add('show');
+
+    // Mostrar overlay atrás do modal
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
 }
 function fecharModal() {
     document.getElementById('modal').classList.remove('show');
+    document.getElementById('overlay').style.display = 'none';
 }
 </script>
 

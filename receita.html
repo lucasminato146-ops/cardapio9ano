@@ -62,12 +62,12 @@
 /* ===== Títulos Principais ===== */
 h1.receita-titulo {
     color: black;
-    background-color: yellow; /* fundo amarelo */
+    background-color: yellow;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
     width: fit-content;
-    margin: 1.5rem auto; /* centraliza */
+    margin: 1.5rem auto;
     text-align: center;   
 }
 h2.subtitulo {
@@ -248,6 +248,14 @@ body, html {
         Obrigado por acessar nossas receitas!
     </div>
 
+    <!-- Botão para próxima página -->
+    <div style="text-align:center; margin: 30px 0;">
+        <a href="beneficios.html" 
+           style="background-color: blue; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 18px; display: inline-block;">
+           Click para próxima página
+        </a>
+    </div>
+
 </div>
 
 <!-- Script para abrir/fechar menu -->
@@ -262,48 +270,5 @@ function fecharMenu(event) {
 }
 </script>
 
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imagem de Fundo Translúcida</title>
-<style>
-    /* Remove margens padrão */
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        background-color: #000; /* cor de fundo que aparece ao redor da imagem */
-    }
-
-    /* Pseudo-elemento para a imagem semi-transparente */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 10%;         /* distância do topo */
-        left: 10%;        /* distância da esquerda */
-        width: 80%;       /* largura da imagem em relação à tela */
-        height: 80%;      /* altura da imagem em relação à tela */
-        background: url("image copy 5.png") no-repeat center center;
-        background-size: contain;   /* mostra a imagem inteira sem cortar */
-        opacity: 0.2;               /* ajuste de transparência (0 a 1) */
-        z-index: -1;                /* mantém atrás do conteúdo */
-    }
-
-    /* Exemplo de conteúdo em cima da imagem */
-    h1 {
-        text-align: center;
-        color: white;
-        margin-top: 40vh;
-        font-size: 2em;
-    }
-</style>
-</head>
-<body>
-  
 </body>
 </html>

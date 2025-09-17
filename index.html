@@ -147,6 +147,21 @@ h1 {
     font-size: 16px;
 }
 
+/* ===== Botão próxima página ===== */
+.btn-proxima {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-proxima:hover {
+    background-color: #0044cc;
+}
+
 /* ===== Modal ===== */
 .modal {
     position: fixed;
@@ -258,6 +273,11 @@ body, html {
         Obrigado por acessar nossas receitas! Para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
     </div>
 
+    <!-- Botão para próxima página -->
+    <div style="text-align:center; margin: 30px 0;">
+        <a href="receita.html" class="btn-proxima">Click para próxima página</a>
+    </div>
+
 </div>
 
 <!-- Modal -->
@@ -290,6 +310,3 @@ function fecharModal() {
 
 </body>
 </html>
-
-
-

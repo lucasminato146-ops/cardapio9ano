@@ -17,11 +17,9 @@
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
-    z-index: 1000;
+    z-index: 1001; /* acima do overlay */
 }
-#side-menu.show {
-    left: 0;
-}
+#side-menu.show { left: 0; }
 #side-menu a {
     padding: 10px 20px;
     text-decoration: none;
@@ -33,9 +31,7 @@
     border-radius: 5px;
     transition: 0.3s;
 }
-#side-menu a:hover {
-    background-color: rgba(255,255,255,0.15);
-}
+#side-menu a:hover { background-color: rgba(255,255,255,0.15); }
 #fechar-menu {
     font-size: 2em;
     color: white;
@@ -43,8 +39,19 @@
     text-decoration: none;
     margin-bottom: 2rem;
 }
-#fechar-menu:hover {
-    color: #ddd;
+#fechar-menu:hover { color: #ddd; }
+
+/* ===== Overlay ===== */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* fundo semi-opaco */
+    backdrop-filter: blur(5px); /* efeito embaçado */
+    z-index: 1000; /* atrás do menu, acima do conteúdo */
+    display: none; /* escondido por padrão */
 }
 
 /* ===== Ícone do Menu ===== */
@@ -55,7 +62,7 @@
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 1100;
+    z-index: 1102; /* acima do overlay e do menu */
     cursor: pointer;
 }
 
@@ -100,13 +107,8 @@ h2.subtitulo {
     text-align: left;
     padding: 0 1rem;
 }
-ul, ol {
-    font-size: 0.95em; 
-    color: white;
-}
-ul li, ol li {
-    margin-bottom: 0.5rem;
-}
+ul, ol { font-size: 0.95em; color: white; }
+ul li, ol li { margin-bottom: 0.5rem; }
 .imagem-receita img {
     display: block;
     margin: 2rem auto;
@@ -137,6 +139,9 @@ body, html {
 </style>
 </head>
 <body>
+
+<!-- Overlay -->
+<div id="overlay" onclick="fecharMenu()"></div>
 
 <!-- Ícone do Menu -->
 <nav>
@@ -259,15 +264,17 @@ body, html {
 
 </div>
 
-<!-- Script para abrir/fechar menu -->
+<!-- Script para abrir/fechar menu com overlay -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
+    document.getElementById('overlay').style.display = 'block';
 }
 function fecharMenu(event) {
-    event.preventDefault();
+    if(event) event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
+    document.getElementById('overlay').style.display = 'none';
 }
 </script>
 

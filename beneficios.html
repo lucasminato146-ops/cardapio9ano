@@ -1,26 +1,38 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR"> 
+<html lang="pt-BR">
 <head>
-@@ -17,9 +20,11 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Benefícios</title>
+<link rel="stylesheet" href="index.css">
+<style>
+/* ===== Estilo do Menu Lateral ===== */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
-    z-index: 1002; /* acima do overlay */
     z-index: 1000;
 }
 #side-menu.show {
     left: 0;
 }
-#side-menu.show { left: 0; }
 #side-menu a {
     padding: 10px 20px;
     text-decoration: none;
-@@ -31,27 +36,18 @@
-    border-radius: 5px;
+    font-size: 14px;
+    color: white !important;
+    display: block;
     transition: 0.3s;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
 }
-#side-menu a:hover { background-color: rgba(255,255,255,0.15); }
 #side-menu a:hover {
     background-color: rgba(255,255,255,0.15);
 }
@@ -31,146 +43,225 @@
     text-decoration: none;
     margin-bottom: 2rem;
 }
-#fechar-menu:hover { color: #ddd; }
-
-/* ===== Overlay ===== */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5); /* fundo semi-opaco */
-    backdrop-filter: blur(3px); /* efeito embaçado */
-    z-index: 1001; /* abaixo do menu */
-    display: none;
 #fechar-menu:hover {
     color: #ddd;
 }
 
-/* ===== Ícone do Menu ===== */
-@@ -62,7 +58,7 @@
+/* ===== Ícone das 3 barras ===== */
+#menu-icon a {
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    text-decoration: none;
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 1003; /* acima de tudo */
     z-index: 1100;
-    cursor: pointer;
 }
 
-@@ -107,8 +103,13 @@
-    text-align: left;
-    padding: 0 1rem;
+/* ===== Título e Subtítulo ===== */
+h1.titulo-principal {
+    text-align: center;
+    color: white;
+    background-color: blue; /* fundo azul */
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
 }
-ul, ol { font-size: 0.95em; color: white; }
-ul li, ol li { margin-bottom: 0.5rem; }
-ul, ol {
-    font-size: 0.95em; 
+h1.titulo-receita {
+    text-align: center;
+    color: black;
+    background-color: yellow; /* fundo amarelo */
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    display: block;
+    width: fit-content;
+    margin: 1.5rem auto;
+}
+h2.subtitulo {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+/* ===== Conteúdo ===== */
+.intro.destaque {
+    max-width: 900px;
+    margin: 2rem auto;
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: justify;
+    font-weight: normal;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+ul {
+    max-width: 700px;
+    margin: 1rem auto 2rem auto;
+    text-align: left;
+    font-size: 0.95em;
+    line-height: 1.4;
     color: white;
 }
-ul li, ol li {
+ul li {
     margin-bottom: 0.5rem;
 }
-.imagem-receita img {
+
+.imagem-beneficio img {
     display: block;
     margin: 2rem auto;
-@@ -140,9 +141,6 @@
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* ===== Mensagem Final ===== */
+.agradecimento {
+    text-align: center;
+    margin: 2rem;
+    font-weight: bold;
+    color: white;
+}
+</style>
 </head>
 <body>
-
-<!-- Overlay -->
-<div id="overlay" onclick="fecharMenu()"></div>
 
 <!-- Ícone do Menu -->
 <nav>
     <ul>
-@@ -161,6 +159,7 @@
+        <li id="menu-icon">
+            <a href="#" onclick="abrirMenu(event)">&#9776;</a>
+        </li>
+    </ul>
+</nav>
 
-<!-- Conteúdo Principal -->
-<div class="container">
-
-    <!-- Texto de recepção destacado -->
-    <div class="intro destaque">
-        <p>
-@@ -200,26 +199,78 @@ <h3>Modo de Preparo:</h3>
-        <img src="image.png" alt="Bolo de Casca de Banana">
-    </div>
-
-    <!-- Receita 2: Geleia de Manga -->
-    <h1 class="receita-titulo">Geleia de Manga 🥭</h1>
-    <h2 class="subtitulo">como fazer na sua casa</h2>
-    <div class="receita-conteudo">
-        <h3>Ingredientes:</h3>
-        <ul>
-            <li>3 mangas maduras</li>
-            <li>1/2 xícara de açúcar (ou a gosto)</li>
-            <li>Suco de 1/2 limão</li>
-            <li>1/2 xícara de água (opcional)</li>
-        </ul>
-        <h3>Modo de Preparo:</h3>
-        <ol>
-            <li>Descasque as mangas e corte em pedaços pequenos.</li>
-            <li>Coloque os pedaços de manga em uma panela com o açúcar e o suco de limão.</li>
-            <li>Cozinhe em fogo baixo, mexendo sempre, até formar uma pasta.</li>
-            <li>Se desejar geleia mais líquida, adicione água aos poucos.</li>
-            <li>Retire do fogo e deixe esfriar. Armazene em pote limpo na geladeira.</li>
-        </ol>
-    </div>
-    <div class="imagem-receita">
-        <img src="image copy.png" alt="Geleia de Manga">
-    </div>
-
-    <!-- Receita 3: Brigadeiro de Casca de Banana -->
-    <h1 class="receita-titulo">Brigadeiro de Casca de Banana 🍫</h1>
-    <h2 class="subtitulo">como fazer na sua casa</h2>
-    <div class="receita-conteudo">
-        <h3>Ingredientes:</h3>
-        <ul>
-            <li>2 cascas de banana maduras</li>
-            <li>1 lata de leite condensado</li>
-            <li>2 colheres de sopa de cacau em pó</li>
-            <li>1 colher de sopa de manteiga</li>
-            <li>Chocolate granulado para enrolar</li>
-        </ul>
-        <h3>Modo de Preparo:</h3>
-        <ol>
-            <li>Lave as cascas de banana e corte em pedaços pequenos.</li>
-            <li>Coloque as cascas, leite condensado, cacau e manteiga em panela.</li>
-            <li>Cozinhe em fogo médio, mexendo sempre, até desgrudar do fundo.</li>
-            <li>Deixe esfriar um pouco, enrole bolinhas e passe no granulado.</li>
-        </ol>
-    </div>
-    <div class="imagem-receita">
-        <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
-    </div>
-
-    <!-- Agradecimento -->
-    <div class="agradecimento">
-        Obrigado por acessar nossas receitas!
-    </div>
-
-    <!-- Botão para voltar ao início -->
-    <div style="text-align:center; margin: 30px 0;">
-        <a href="index.html" 
-           style="background-color: blue; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 18px; display: inline-block;">
-           Voltar para o início
-        </a>
-    </div>
-
+<!-- Menu Lateral -->
+<div id="side-menu">
+    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
+    <a href="index.html">Página Inicial</a>
+    <a href="receita.html">Modo de Preparo das Receitas</a>
 </div>
 
-<!-- Script para abrir/fechar menu com overlay -->
+<!-- Título Principal e Subtítulo -->
+<h1 class="titulo-principal">Benefícios das Nossas Receitas</h1>
+<h2 class="subtitulo">Descubra como cada receita contribui para a sua saúde</h2>
+
+<!-- Bolo de Casca de Banana -->
+<h1 class="titulo-receita">Bolo de Casca de Banana 🍌</h1>
+<div class="intro destaque">
+    <p>
+        O Bolo de Casca de Banana é uma receita saudável e sustentável. Ele aproveita toda a fruta, contribuindo para a redução de desperdício e oferecendo nutrientes importantes.
+    </p>
+    <ul>
+        <li>Rico em fibras, auxiliando na digestão.</li>
+        <li>Fonte de potássio, essencial para músculos e coração.</li>
+        <li>Baixo custo e aproveitamento total da fruta.</li>
+        <li>Receita saborosa, ideal para lanches saudáveis.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image.png" alt="Bolo de Casca de Banana">
+</div>
+
+<!-- Geleia de Manga -->
+<h1 class="titulo-receita">Geleia de Manga 🥭</h1>
+<div class="intro destaque">
+    <p>
+        A Geleia de Manga é feita com frutas maduras, sem conservantes, mantendo o sabor natural e os nutrientes da manga. É uma alternativa doce e saudável aos produtos industrializados.
+    </p>
+    <ul>
+        <li>Rica em vitaminas A e C, fortalecendo o sistema imunológico.</li>
+        <li>Feita com frutas frescas, sem aditivos artificiais.</li>
+        <li>Ajuda a incentivar o consumo de frutas naturais.</li>
+        <li>Doce natural com baixo teor de açúcar refinado.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image copy.png" alt="Geleia de Manga">
+</div>
+
+<!-- Brigadeiro de Casca de Banana -->
+<h1 class="titulo-receita">Brigadeiro de Casca de Banana 🍫</h1>
+<div class="intro destaque">
+    <p>
+        O Brigadeiro de Casca de Banana é uma versão mais saudável do doce tradicional. Ele utiliza as cascas da banana, mantendo o sabor intenso de chocolate e adicionando fibras à receita.
+    </p>
+    <ul>
+        <li>Menor adição de açúcar comparado ao brigadeiro comum.</li>
+        <li>Fonte de fibras e nutrientes provenientes da casca de banana.</li>
+        <li>Redução de desperdício de alimentos.</li>
+        <li>Doce saboroso e nutritivo.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
+</div>
+
+<!-- Agradecimento -->
+<div class="agradecimento">
+    Obrigado por acessar nossas receitas!
+</div>
+
 <!-- Script para abrir/fechar menu -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
-    document.getElementById('overlay').style.display = 'block';
 }
 function fecharMenu(event) {
-    if(event) event.preventDefault();
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
-    document.getElementById('overlay').style.display = 'none';
 }
 </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imagem de Fundo Translúcida</title>
+<style>
+    /* Remove margens padrão */
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background-color: #000; /* cor de fundo que aparece ao redor da imagem */
+    }
+
+    /* Pseudo-elemento para a imagem semi-transparente */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 10%;         /* distância do topo */
+        left: 10%;        /* distância da esquerda */
+        width: 80%;       /* largura da imagem em relação à tela */
+        height: 80%;      /* altura da imagem em relação à tela */
+        background: url("image copy 5.png") no-repeat center center;
+        background-size: contain;   /* mostra a imagem inteira sem cortar */
+        opacity: 0.2;               /* ajuste de transparência (0 a 1) */
+        z-index: -1;                /* mantém atrás do conteúdo */
+    }
+
+    /* Exemplo de conteúdo em cima da imagem */
+    h1 {
+        text-align: center;
+        color: white;
+        margin-top: 40vh;
+        font-size: 2em;
+    }
+</style>
+</head>
+<body>
+
+</body>
+</html>

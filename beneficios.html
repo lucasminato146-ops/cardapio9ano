@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Benefícios</title>
+<title>Receitas do 9º Ano</title>
 <link rel="stylesheet" href="index.css">
 <style>
-/* ===== Estilo do Menu Lateral ===== */
+/* ===== Menu Lateral ===== */
 #side-menu {
     position: fixed;
     top: 0;
@@ -28,10 +28,10 @@
     font-size: 14px;
     color: white !important;
     display: block;
-    transition: 0.3s;
     margin-bottom: 5px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
+    transition: 0.3s;
 }
 #side-menu a:hover {
     background-color: rgba(255,255,255,0.15);
@@ -47,86 +47,92 @@
     color: #ddd;
 }
 
-/* ===== Ícone das 3 barras ===== */
+/* ===== Ícone do Menu ===== */
 #menu-icon a {
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 2em;
     text-decoration: none;
     position: fixed;
     top: 10px;
     left: 10px;
     z-index: 1100;
+    cursor: pointer;
 }
 
-/* ===== Título e Subtítulo ===== */
-h1.titulo-principal {
-    text-align: center;
-    color: white;
-    background-color: blue; /* fundo azul */
-    padding: 0.5em 1em;
-    border-radius: 8px;
-    display: block;
-    width: fit-content;
-    margin: 2rem auto;
-}
-h1.titulo-receita {
-    text-align: center;
+/* ===== Títulos Principais ===== */
+h1.receita-titulo {
     color: black;
-    background-color: yellow; /* fundo amarelo */
+    background-color: yellow;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
     width: fit-content;
     margin: 1.5rem auto;
+    text-align: center;   
 }
 h2.subtitulo {
     text-align: center;
-    font-size: 20px;
+    font-size: 16px; 
     color: white;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 /* ===== Conteúdo ===== */
 .intro.destaque {
     max-width: 900px;
     margin: 2rem auto;
-    font-size: 1em;
-    line-height: 1.6;
-    text-align: justify;
-    font-weight: normal;
-    color: white;
-    background-color: rgba(0,0,0,0.6);
+    font-size: 1em; 
+    line-height: 1.9;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(4, 0, 255, 0.6);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-ul {
-    max-width: 700px;
-    margin: 1rem auto 2rem auto;
-    text-align: left;
-    font-size: 0.95em;
-    line-height: 1.4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     color: white;
 }
-ul li {
+.receita-conteudo {
+    max-width: 800px;
+    margin: 1rem auto 3rem auto;
+    font-size: 0.95em; 
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    padding: 0 1rem;
+}
+ul, ol {
+    font-size: 0.95em; 
+    color: white;
+}
+ul li, ol li {
     margin-bottom: 0.5rem;
 }
-
-.imagem-beneficio img {
+.imagem-receita img {
     display: block;
     margin: 2rem auto;
     max-width: 80%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
-
-/* ===== Mensagem Final ===== */
 .agradecimento {
     text-align: center;
     margin: 2rem;
     font-weight: bold;
     color: white;
+}
+
+/* ===== Impede que o conteúdo se mova ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #111;
+}
+.container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 </style>
 </head>
@@ -145,67 +151,112 @@ ul li {
 <div id="side-menu">
     <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
     <a href="index.html">Página Inicial</a>
-    <a href="receita.html">Modo de Preparo das Receitas</a>
+    <a href="beneficios.html">Benefícios</a>
 </div>
 
-<!-- Título Principal e Subtítulo -->
-<h1 class="titulo-principal">Benefícios das Nossas Receitas</h1>
-<h2 class="subtitulo">Descubra como cada receita contribui para a sua saúde</h2>
+<!-- Conteúdo Principal -->
+<div class="container">
 
-<!-- Bolo de Casca de Banana -->
-<h1 class="titulo-receita">Bolo de Casca de Banana 🍌</h1>
-<div class="intro destaque">
-    <p>
-        O Bolo de Casca de Banana é uma receita saudável e sustentável. Ele aproveita toda a fruta, contribuindo para a redução de desperdício e oferecendo nutrientes importantes.
-    </p>
-    <ul>
-        <li>Rico em fibras, auxiliando na digestão.</li>
-        <li>Fonte de potássio, essencial para músculos e coração.</li>
-        <li>Baixo custo e aproveitamento total da fruta.</li>
-        <li>Receita saborosa, ideal para lanches saudáveis.</li>
-    </ul>
-</div>
-<div class="imagem-beneficio">
-    <img src="image.png" alt="Bolo de Casca de Banana">
-</div>
+    <!-- Texto de recepção destacado -->
+    <div class="intro destaque">
+        <p>
+            <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
+            Descubra nossas receitas criativas e sustentáveis.
+        </p>
+    </div>
 
-<!-- Geleia de Manga -->
-<h1 class="titulo-receita">Geleia de Manga 🥭</h1>
-<div class="intro destaque">
-    <p>
-        A Geleia de Manga é feita com frutas maduras, sem conservantes, mantendo o sabor natural e os nutrientes da manga. É uma alternativa doce e saudável aos produtos industrializados.
-    </p>
-    <ul>
-        <li>Rica em vitaminas A e C, fortalecendo o sistema imunológico.</li>
-        <li>Feita com frutas frescas, sem aditivos artificiais.</li>
-        <li>Ajuda a incentivar o consumo de frutas naturais.</li>
-        <li>Doce natural com baixo teor de açúcar refinado.</li>
-    </ul>
-</div>
-<div class="imagem-beneficio">
-    <img src="image copy.png" alt="Geleia de Manga">
-</div>
+    <!-- Receita 1: Bolo de Casca de Banana -->
+    <h1 class="receita-titulo">Bolo de Casca de Banana 🍌</h1>
+    <h2 class="subtitulo">como fazer na sua casa</h2>
+    <div class="receita-conteudo">
+        <h3>Ingredientes:</h3>
+        <ul>
+            <li>3 bananas maduras</li>
+            <li>2 cascas de banana (bem lavadas)</li>
+            <li>2 ovos</li>
+            <li>1 xícara de açúcar</li>
+            <li>1/2 xícara de óleo vegetal</li>
+            <li>1 xícara de farinha de trigo</li>
+            <li>1 colher de sopa de fermento em pó</li>
+            <li>1 pitada de sal</li>
+            <li>Canela a gosto (opcional)</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+            <li>Lave bem as cascas das bananas, retire as pontas e pique em pedaços pequenos.</li>
+            <li>Coloque as cascas no liquidificador com os ovos e o óleo. Bata até formar um creme homogêneo.</li>
+            <li>Adicione o açúcar e bata novamente.</li>
+            <li>Em uma tigela, peneire a farinha, o fermento e o sal. Misture delicadamente ao creme do liquidificador.</li>
+            <li>Unte uma forma com manteiga e farinha, despeje a massa e leve ao forno pré-aquecido a 180°C por 30-40 minutos.</li>
+            <li>Retire do forno, espere esfriar e desenforme. Polvilhe canela ou açúcar de confeiteiro se desejar.</li>
+        </ol>
+        <p><strong>Dica:</strong> Adicione cacau em pó ou pedaços de banana para variar.</p>
+    </div>
+    <div class="imagem-receita">
+        <img src="image.png" alt="Bolo de Casca de Banana">
+    </div>
 
-<!-- Brigadeiro de Casca de Banana -->
-<h1 class="titulo-receita">Brigadeiro de Casca de Banana 🍫</h1>
-<div class="intro destaque">
-    <p>
-        O Brigadeiro de Casca de Banana é uma versão mais saudável do doce tradicional. Ele utiliza as cascas da banana, mantendo o sabor intenso de chocolate e adicionando fibras à receita.
-    </p>
-    <ul>
-        <li>Menor adição de açúcar comparado ao brigadeiro comum.</li>
-        <li>Fonte de fibras e nutrientes provenientes da casca de banana.</li>
-        <li>Redução de desperdício de alimentos.</li>
-        <li>Doce saboroso e nutritivo.</li>
-    </ul>
-</div>
-<div class="imagem-beneficio">
-    <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
-</div>
+    <!-- Receita 2: Geleia de Manga -->
+    <h1 class="receita-titulo">Geleia de Manga 🥭</h1>
+    <h2 class="subtitulo">como fazer na sua casa</h2>
+    <div class="receita-conteudo">
+        <h3>Ingredientes:</h3>
+        <ul>
+            <li>3 mangas maduras</li>
+            <li>1/2 xícara de açúcar (ou a gosto)</li>
+            <li>Suco de 1/2 limão</li>
+            <li>1/2 xícara de água (opcional)</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+            <li>Descasque as mangas e corte em pedaços pequenos.</li>
+            <li>Coloque os pedaços de manga em uma panela com o açúcar e o suco de limão.</li>
+            <li>Cozinhe em fogo baixo, mexendo sempre, até formar uma pasta.</li>
+            <li>Se desejar geleia mais líquida, adicione água aos poucos.</li>
+            <li>Retire do fogo e deixe esfriar. Armazene em pote limpo na geladeira.</li>
+        </ol>
+    </div>
+    <div class="imagem-receita">
+        <img src="image copy.png" alt="Geleia de Manga">
+    </div>
 
-<!-- Agradecimento -->
-<div class="agradecimento">
-    Obrigado por acessar nossas receitas!
+    <!-- Receita 3: Brigadeiro de Casca de Banana -->
+    <h1 class="receita-titulo">Brigadeiro de Casca de Banana 🍫</h1>
+    <h2 class="subtitulo">como fazer na sua casa</h2>
+    <div class="receita-conteudo">
+        <h3>Ingredientes:</h3>
+        <ul>
+            <li>2 cascas de banana maduras</li>
+            <li>1 lata de leite condensado</li>
+            <li>2 colheres de sopa de cacau em pó</li>
+            <li>1 colher de sopa de manteiga</li>
+            <li>Chocolate granulado para enrolar</li>
+        </ul>
+        <h3>Modo de Preparo:</h3>
+        <ol>
+            <li>Lave as cascas de banana e corte em pedaços pequenos.</li>
+            <li>Coloque as cascas, leite condensado, cacau e manteiga em panela.</li>
+            <li>Cozinhe em fogo médio, mexendo sempre, até desgrudar do fundo.</li>
+            <li>Deixe esfriar um pouco, enrole bolinhas e passe no granulado.</li>
+        </ol>
+    </div>
+    <div class="imagem-receita">
+        <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
+    </div>
+
+    <!-- Agradecimento -->
+    <div class="agradecimento">
+        Obrigado por acessar nossas receitas!
+    </div>
+
+    <!-- Botão para voltar ao início -->
+    <div style="text-align:center; margin: 30px 0;">
+        <a href="index.html" 
+           style="background-color: blue; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 18px; display: inline-block;">
+           Voltar para o início
+        </a>
+    </div>
+
 </div>
 
 <!-- Script para abrir/fechar menu -->
@@ -219,49 +270,6 @@ function fecharMenu(event) {
     document.getElementById('side-menu').classList.remove('show');
 }
 </script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imagem de Fundo Translúcida</title>
-<style>
-    /* Remove margens padrão */
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        background-color: #000; /* cor de fundo que aparece ao redor da imagem */
-    }
-
-    /* Pseudo-elemento para a imagem semi-transparente */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 10%;         /* distância do topo */
-        left: 10%;        /* distância da esquerda */
-        width: 80%;       /* largura da imagem em relação à tela */
-        height: 80%;      /* altura da imagem em relação à tela */
-        background: url("image copy 5.png") no-repeat center center;
-        background-size: contain;   /* mostra a imagem inteira sem cortar */
-        opacity: 0.2;               /* ajuste de transparência (0 a 1) */
-        z-index: -1;                /* mantém atrás do conteúdo */
-    }
-
-    /* Exemplo de conteúdo em cima da imagem */
-    h1 {
-        text-align: center;
-        color: white;
-        margin-top: 40vh;
-        font-size: 2em;
-    }
-</style>
-</head>
-<body>
 
 </body>
 </html>

@@ -47,14 +47,14 @@
     color: #ddd;
 }
 
-/* ===== Overlay ===== */
+/* ===== Overlay (opacidade da página) ===== */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6); /* aqui controla a opacidade */
     z-index: 1000;
     display: none;
 }
@@ -77,7 +77,7 @@
 h1.titulo-principal {
     text-align: center;
     color: white;
-    background-color: blue; /* fundo azul */
+    background-color: blue;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -87,7 +87,7 @@ h1.titulo-principal {
 h1.titulo-receita {
     text-align: center;
     color: black;
-    background-color: yellow; /* fundo amarelo */
+    background-color: yellow;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -167,14 +167,13 @@ ul li {
     <a href="venda.html">vendas</a>
 </div>
 
-<!-- Título Principal e Subtítulo -->
+<!-- Conteúdo da Página -->
 <h1 class="titulo-principal">Benefícios das Nossas Receitas</h1>
 <h2 class="subtitulo">Descubra como cada receita contribui para a sua saúde</h2>
 
-<!-- Conteúdo (igual ao seu) -->
-<!-- ... (mantive tudo igual, não mexi no conteúdo das receitas) ... -->
+<!-- (mantém seus blocos de receitas, imagens e agradecimento iguais) -->
 
-<!-- Script para abrir/fechar menu -->
+<!-- Script -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();

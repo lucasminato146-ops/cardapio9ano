@@ -76,6 +76,11 @@
     visibility: visible;
 }
 
+/* ===== Bloqueio do scroll ===== */
+body.menu-aberto {
+    overflow: hidden;
+}
+
 /* ===== Título e Subtítulo ===== */
 h1.titulo-principal {
     text-align: center;
@@ -246,11 +251,13 @@ function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
     document.getElementById('overlay').classList.add('show');
+    document.body.classList.add('menu-aberto'); // trava scroll
 }
 function fecharMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
     document.getElementById('overlay').classList.remove('show');
+    document.body.classList.remove('menu-aberto'); // libera scroll
 }
 </script>
 

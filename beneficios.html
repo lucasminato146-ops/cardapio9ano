@@ -17,7 +17,7 @@
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
-    z-index: 1001; /* acima do overlay */
+    z-index: 1000;
 }
 #side-menu.show {
     left: 0;
@@ -47,21 +47,6 @@
     color: #ddd;
 }
 
-/* ===== Overlay (opacidade da página) ===== */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6); /* aqui controla a opacidade */
-    z-index: 1000;
-    display: none;
-}
-#overlay.show {
-    display: block;
-}
-
 /* ===== Ícone das 3 barras ===== */
 #menu-icon a {
     color: rgb(255, 255, 255);
@@ -77,7 +62,7 @@
 h1.titulo-principal {
     text-align: center;
     color: white;
-    background-color: blue;
+    background-color: blue; /* fundo azul */
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -87,7 +72,7 @@ h1.titulo-principal {
 h1.titulo-receita {
     text-align: center;
     color: black;
-    background-color: yellow;
+    background-color: yellow; /* fundo amarelo */
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -156,9 +141,6 @@ ul li {
     </ul>
 </nav>
 
-<!-- Overlay -->
-<div id="overlay" onclick="fecharMenu(event)"></div>
-
 <!-- Menu Lateral -->
 <div id="side-menu">
     <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
@@ -167,25 +149,92 @@ ul li {
     <a href="venda.html">vendas</a>
 </div>
 
-<!-- Conteúdo da Página -->
+<!-- Título Principal e Subtítulo -->
 <h1 class="titulo-principal">Benefícios das Nossas Receitas</h1>
 <h2 class="subtitulo">Descubra como cada receita contribui para a sua saúde</h2>
 
-<!-- (mantém seus blocos de receitas, imagens e agradecimento iguais) -->
+<!-- Bolo de Casca de Banana -->
+<h1 class="titulo-receita">Bolo de Casca de Banana 🍌</h1>
+<div class="intro destaque">
+    <p>
+        O Bolo de Casca de Banana é uma receita saudável e sustentável. Ele aproveita toda a fruta, contribuindo para a redução de desperdício e oferecendo nutrientes importantes.
+    </p>
+    <ul>
+        <li>Rico em fibras, auxiliando na digestão.</li>
+        <li>Fonte de potássio, essencial para músculos e coração.</li>
+        <li>Baixo custo e aproveitamento total da fruta.</li>
+        <li>Receita saborosa, ideal para lanches saudáveis.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image.png" alt="Bolo de Casca de Banana">
+</div>
 
-<!-- Script -->
+<!-- Geleia de Manga -->
+<h1 class="titulo-receita">Geleia de Manga 🥭</h1>
+<div class="intro destaque">
+    <p>
+        A Geleia de Manga é feita com frutas maduras, sem conservantes, mantendo o sabor natural e os nutrientes da manga. É uma alternativa doce e saudável aos produtos industrializados.
+    </p>
+    <ul>
+        <li>Rica em vitaminas A e C, fortalecendo o sistema imunológico.</li>
+        <li>Feita com frutas frescas, sem aditivos artificiais.</li>
+        <li>Ajuda a incentivar o consumo de frutas naturais.</li>
+        <li>Doce natural com baixo teor de açúcar refinado.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image copy.png" alt="Geleia de Manga">
+</div>
+
+<!-- Brigadeiro de Casca de Banana -->
+<h1 class="titulo-receita">Brigadeiro de Casca de Banana 🍫</h1>
+<div class="intro destaque">
+    <p>
+        O Brigadeiro de Casca de Banana é uma versão mais saudável do doce tradicional. Ele utiliza as cascas da banana, mantendo o sabor intenso de chocolate e adicionando fibras à receita.
+    </p>
+    <ul>
+        <li>Menor adição de açúcar comparado ao brigadeiro comum.</li>
+        <li>Fonte de fibras e nutrientes provenientes da casca de banana.</li>
+        <li>Redução de desperdício de alimentos.</li>
+        <li>Doce saboroso e nutritivo.</li>
+    </ul>
+</div>
+<div class="imagem-beneficio">
+    <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
+</div>
+
+<!-- Agradecimento -->
+<div class="agradecimento">
+    Obrigado por acessar nossas receitas!
+</div>
+
+<!-- Botão para voltar à página inicial -->
+<div style="text-align: center; margin-bottom: 2rem;">
+    <a href="index.html" 
+       style="background-color: blue; color: white; padding: 12px 24px; 
+              text-decoration: none; border-radius: 8px; font-weight: bold;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: 0.3s;">
+        Voltar para Página Inicial
+    </a>
+</div>
+
+<!-- Script para abrir/fechar menu -->
 <script>
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
-    document.getElementById('overlay').classList.add('show');
 }
 function fecharMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
-    document.getElementById('overlay').classList.remove('show');
 }
 </script>
 
 </body>
 </html>
+
+
+
+
+não mude nada no script apenas faça que ao abrir o menu os texto e nem as imagem se macha fiquem ficha 

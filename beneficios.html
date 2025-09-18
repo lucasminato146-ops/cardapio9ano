@@ -17,7 +17,7 @@
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
-    z-index: 1000;
+    z-index: 1001;
 }
 #side-menu.show {
     left: 0;
@@ -58,11 +58,29 @@
     z-index: 1100;
 }
 
+/* ===== Fundo Opaco ===== */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+}
+#overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ===== Título e Subtítulo ===== */
 h1.titulo-principal {
     text-align: center;
     color: white;
-    background-color: blue; /* fundo azul */
+    background-color: blue;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -72,7 +90,7 @@ h1.titulo-principal {
 h1.titulo-receita {
     text-align: center;
     color: black;
-    background-color: yellow; /* fundo amarelo */
+    background-color: yellow;
     padding: 0.5em 1em;
     border-radius: 8px;
     display: block;
@@ -132,6 +150,9 @@ ul li {
 </head>
 <body>
 
+<!-- Fundo Opaco -->
+<div id="overlay" onclick="fecharMenu(event)"></div>
+
 <!-- Ícone do Menu -->
 <nav>
     <ul>
@@ -146,7 +167,7 @@ ul li {
     <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
     <a href="index.html">Página Inicial</a>
     <a href="receita.html">Modo de Preparo das Receitas</a>
-    <a href="venda.html">vendas</a>
+    <a href="venda.html">Vendas</a>
 </div>
 
 <!-- Título Principal e Subtítulo -->
@@ -224,16 +245,14 @@ ul li {
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
 }
 function fecharMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
 }
 </script>
 
 </body>
 </html>
-
-
-
-

@@ -224,10 +224,12 @@ ul li {
 function abrirMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.add('show');
+    document.body.style.overflow = "hidden"; // trava rolagem do conteúdo
 }
 function fecharMenu(event) {
     event.preventDefault();
     document.getElementById('side-menu').classList.remove('show');
+    document.body.style.overflow = ""; // libera rolagem novamente
 }
 </script>
 

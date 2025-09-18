@@ -209,6 +209,16 @@ ul li {
     Obrigado por acessar nossas receitas!
 </div>
 
+<!-- Botão para voltar à página inicial -->
+<div style="text-align: center; margin-bottom: 2rem;">
+    <a href="index.html" 
+       style="background-color: blue; color: white; padding: 12px 24px; 
+              text-decoration: none; border-radius: 8px; font-weight: bold;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: 0.3s;">
+        Voltar para Página Inicial
+    </a>
+</div>
+
 <!-- Script para abrir/fechar menu -->
 <script>
 function abrirMenu(event) {
@@ -220,49 +230,6 @@ function fecharMenu(event) {
     document.getElementById('side-menu').classList.remove('show');
 }
 </script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imagem de Fundo Translúcida</title>
-<style>
-    /* Remove margens padrão */
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        background-color: #000; /* cor de fundo que aparece ao redor da imagem */
-    }
-
-    /* Pseudo-elemento para a imagem semi-transparente */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 10%;         /* distância do topo */
-        left: 10%;        /* distância da esquerda */
-        width: 80%;       /* largura da imagem em relação à tela */
-        height: 80%;      /* altura da imagem em relação à tela */
-        background: url("image copy 5.png") no-repeat center center;
-        background-size: contain;   /* mostra a imagem inteira sem cortar */
-        opacity: 0.2;               /* ajuste de transparência (0 a 1) */
-        z-index: -1;                /* mantém atrás do conteúdo */
-    }
-
-    /* Exemplo de conteúdo em cima da imagem */
-    h1 {
-        text-align: center;
-        color: white;
-        margin-top: 40vh;
-        font-size: 2em;
-    }
-</style>
-</head>
-<body>
 
 </body>
 </html>

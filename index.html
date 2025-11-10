@@ -78,6 +78,12 @@
       background-color: #0088cc;
       transform: scale(1.05);
     }
+
+    button:disabled {
+      background-color: #444;
+      cursor: not-allowed;
+      transform: none;
+    }
   </style>
 </head>
 <body>
@@ -141,34 +147,47 @@
 
   <script>
     const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
     let current = 0;
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
+
+      // desabilita botões nos limites
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
     }
 
-    document.getElementById('next').addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
+    nextBtn.addEventListener('click', () => {
+      if (current < slides.length - 1) {
+        current++;
+        showSlide(current);
+      }
     });
 
-    document.getElementById('prev').addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) {
+        current--;
+        showSlide(current);
+      }
     });
 
     // também permite mudar com setas do teclado
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        current = (current + 1) % slides.length;
+      if (e.key === 'ArrowRight' && current < slides.length - 1) {
+        current++;
         showSlide(current);
-      } else if (e.key === 'ArrowLeft') {
-        current = (current - 1 + slides.length) % slides.length;
+      } else if (e.key === 'ArrowLeft' && current > 0) {
+        current--;
         showSlide(current);
       }
     });
+
+    // inicia corretamente
+    showSlide(current);
   </script>
 
 </body>

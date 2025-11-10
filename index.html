@@ -1,209 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<title>Cardápio do 9º Ano</title>
-<link rel="stylesheet" href="index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Trek: Sem Fronteiras – Apresentação</title>
 <style>
-/* ===== Menu Lateral ===== */
-#side-menu {
-    position: fixed;
-    top: 0;
-    left: -290px;
-    width: 250px;
-    height: 100%;
-    background-color: #333333;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 90px;
-    z-index: 1001; /* acima do overlay */
-}
-#side-menu.show { left: 0; }
-#side-menu a {
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    color: white !important;
-    display: block;
-    margin-bottom: 5px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    transition: 0.3s;
-}
-#side-menu a:hover { background-color: rgba(255,255,255,0.15); }
-#fechar-menu {
-    font-size: 2em;
-    color: #ff4d4d;
-    font-weight: bold;
-    text-decoration: none;
-    margin-bottom: 2rem;
-}
-#fechar-menu:hover { color: #ff1a1a; }
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
 
-/* ===== Ícone do Menu ===== */
-#menu-icon a {
-    color: rgb(255, 255, 255);
-    font-size: 5em;
-    text-decoration: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1102;
-    cursor: pointer;
-}
-
-/* ===== Overlay ===== */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5); /* fundo semi-opaco */
-    backdrop-filter: blur(5px); /* efeito embaçado */
-    z-index: 1000; /* atrás do menu e modal */
+  .slide {
     display: none;
-    transition: 0.3s;
-}
+    width: 1280px;
+    height: 720px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: radial-gradient(circle at center, #0b1c2c, #000);
+  }
 
-/* ===== Títulos e Subtítulos ===== */
-h1 { color: white; margin: 0; }
-.subtitulo { text-align: center; font-size: 20px; color: white; margin-top: 10px; font-weight: normal; }
-.titulo-wrapper { font-size: 10px; text-align: center; margin-top: 20px; margin-bottom: 10px; }
-.titulo-marcado { background-color:  purple; padding: 0.2em 0.6em; border-radius: 6px; display: inline-block; color: white; }
+  .active {
+    display: block;
+  }
 
-/* ===== Imagens ===== */
-.img-grande { width: 100%; height: auto; display: block; margin: 0; opacity:0.8; }
-.img-feira { display: block; margin: 20px auto; max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-.imagem-galeria { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 2rem auto; }
-.imagem-galeria figure { text-align: center; color: white; cursor: pointer; }
-.imagem-galeria img { max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-.btn-vermais { background-color: blue; color: white; padding: 6px 14px; border-radius: 6px; margin-top: 8px; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: background-color 0.3s; }
-.btn-vermais:hover { background-color: #0044cc; }
+  h1, h2 {
+    text-align: center;
+    color: #00bfff;
+  }
 
-/* ===== Texto ===== */
-.intro.destaque { max-width: 800px; margin: 20px auto; font-size: 16px; line-height: 1.5; text-align: center; color: white; }
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+  }
 
-/* ===== Agradecimento final ===== */
-.agradecimento { text-align: center; color: white; margin: 30px auto 20px; font-size: 16px; }
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-/* ===== Botão próxima página ===== */
-.btn-proxima { background-color: blue; color: white; padding: 12px 24px; border-radius: 6px; font-size: 18px; text-decoration: none; display: inline-block; margin: 20px auto; transition: background-color 0.3s; }
-.btn-proxima:hover { background-color: #0044cc; }
+  button {
+    background: #00bfff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 
-/* ===== Modal ===== */
-.modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 90%; max-width: 500px; background-color: #222; color: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); text-align: left; z-index: 1202; transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0; }
-.modal.show { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-.modal h3 { margin-top: 0; }
-.modal .close-btn { display: block; text-align: right; font-size: 1.5em; cursor: pointer; color: #ff4d4d; }
-.modal .close-btn:hover { color: #ff1a1a; }
-
-/* ===== Base ===== */
-body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #111; }
-.container { position: relative; max-width: 1200px; margin: 0 auto; }
+  button:hover {
+    background: #0099cc;
+  }
 </style>
 </head>
 <body>
 
-<!-- Overlay -->
-<div id="overlay" onclick="fecharModal()"></div>
-
-<!-- Ícone do Menu -->
-<nav>
-    <ul>
-        <li id="menu-icon">
-            <a href="#" onclick="abrirMenu(event)">&#9776;</a>
-        </li>
-    </ul>
-</nav>
-
-<!-- Menu Lateral -->
-<div id="side-menu">
-    <a href="#" id="fechar-menu" onclick="fecharMenu(event)">FECHAR</a>
-    <a href="receita.html">Modo de preparo das receitas</a>
-    <a href="beneficios.html">Benefícios</a>
-    <a href="venda.html">vendas</a>
+<!-- SLIDE 1 -->
+<div class="slide active">
+  <h1>Star Trek: Sem Fronteiras</h1>
+  <h2>Análise e Resenha Crítica</h2>
+  <p><strong>Aluno:</strong> Heitor<br>
+     <strong>Professor:</strong> (nome do professor)<br>
+     <strong>Disciplina:</strong> (nome da matéria)<br>
+     <strong>Data:</strong> (coloque a data)
+  </p>
 </div>
 
-<!-- Conteúdo Principal -->
-<div class="container">
-    <img src="image copy 4.png" alt="Imagem Grande" class="img-grande">
-    <div class="titulo-wrapper">
-        <h1 class="titulo-marcado">Feira de Ciências 9° ano</h1>
-    </div>
-    <h2 class="subtitulo">Descubra nossas receitas criativas e sustentáveis</h2>
-    <img src="image copy 3.png" alt="Imagem da feira" class="img-feira">
-    <div class="intro destaque">
-        <p>
-            <strong>Bem-vindo ao Cardápio do 9º Ano!</strong><br>
-            Nós, alunos, nos dedicamos a criar receitas criativas, saborosas 
-            e sustentáveis para toda a turma. Explore, aprenda e experimente
-            novas formas de cozinhar.
-        </p>
-    </div>
-    <div class="imagem-galeria">
-     
-      <figure onclick="abrirModal('Bolo de Casca de Banana 🍌', 'Um bolo nutritivo e sustentável, que utiliza toda a banana, incluindo as cascas. Rico em fibras e potássio, é saboroso, econômico e reduz o desperdício de alimentos.')">
-            <img src="image.png" alt="Bolo de Casca de Banana">
-            <figcaption>Bolo de Casca de Banana 🍌</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-      <figure onclick="abrirModal('Geleia de Manga 🥭', 'Geleia natural feita com mangas maduras, sem conservantes. Mantém o sabor e os nutrientes da fruta, sendo rica em vitaminas, doce naturalmente e uma opção saudável para o dia a dia.')">
-            <img src="image copy.png" alt="Geleia de Manga">
-            <figcaption>Geleia de Manga 🥭</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-       <figure onclick="abrirModal('Brigadeiro de Casca de Banana 🍫', 'Uma versão mais saudável do brigadeiro tradicional, feito com cascas de banana. Menos açúcar, mais fibras e aproveitamento total da fruta, mantendo o sabor delicioso de chocolate.')">
-            <img src="image copy 2.png" alt="Brigadeiro de Casca de Banana">
-            <figcaption>Brigadeiro de Casca de Banana 🍫</figcaption>
-            <div class="btn-vermais">VER MAIS</div>
-        </figure>
-    </div>
-
-    <div class="agradecimento">
-        Obrigado por acessar nossas receitas! Para acessar o modo de preparo, clique no ícone do menu no canto superior esquerdo.
-    </div>
-
-    <!-- Botão para próxima página -->
-    <div style="text-align:center;">
-        <a href="receita.html" class="btn-proxima">Click para próxima página</a>
-    </div>
-
+<!-- SLIDE 2 -->
+<div class="slide">
+  <h1>Introdução</h1>
+  <p><strong>Título:</strong> Star Trek: Sem Fronteiras (2016)<br>
+     <strong>Direção:</strong> Justin Lin<br>
+     <strong>Gênero:</strong> Ficção científica, aventura e ação.<br><br>
+     O filme mostra uma nova missão da nave <em>USS Enterprise</em>, comandada pelo Capitão Kirk.
+     Durante uma expedição em território desconhecido, a tripulação enfrenta uma ameaça misteriosa
+     que coloca em risco a Federação dos Planetas Unidos.
+  </p>
 </div>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-    <span class="close-btn" onclick="fecharModal()">&times;</span>
-    <h3 id="modal-title"></h3>
-    <p id="modal-content"></p>
+<!-- SLIDE 3 -->
+<div class="slide">
+  <h1>Resumo</h1>
+  <p>A tripulação da Enterprise é atacada e separada em um planeta hostil. 
+  Eles precisam trabalhar juntos para sobreviver e impedir os planos de Krall, 
+  um inimigo determinado a destruir a Federação. 
+  O filme explora valores como coragem, amizade e união.</p>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <h1>Análise Crítica</h1>
+  <p><strong>Pontos fortes:</strong> ótimos efeitos visuais, boa trilha sonora e enredo envolvente.<br>
+     <strong>Pontos fracos:</strong> vilão pouco desenvolvido e ritmo acelerado em algumas cenas.<br><br>
+     A direção mantém o espírito da saga, equilibrando ação e emoção.</p>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <h1>Conclusão</h1>
+  <p>“Star Trek: Sem Fronteiras” é uma excelente mistura de ação e reflexão sobre cooperação e diversidade.
+  Recomendo o filme para quem gosta de ficção científica com mensagens humanas e inspiradoras.</p>
+</div>
+
+<div class="controls">
+  <button onclick="prevSlide()">⬅️ Anterior</button>
+  <button onclick="nextSlide()">Próximo ➡️</button>
 </div>
 
 <script>
-function abrirMenu(event) {
-    event.preventDefault();
-    document.getElementById('side-menu').classList.add('show');
-    document.getElementById('overlay').style.display = 'block';
-}
-function fecharMenu(event) {
-    if(event) event.preventDefault();
-    document.getElementById('side-menu').classList.remove('show');
-    document.getElementById('overlay').style.display = 'none';
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(n) {
+  slides[current].classList.remove('active');
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add('active');
 }
 
-function abrirModal(titulo, conteudo) {
-    document.getElementById('modal-title').innerText = titulo;
-    document.getElementById('modal-content').innerText = conteudo;
-    document.getElementById('modal').classList.add('show');
+function nextSlide() {
+  showSlide(current + 1);
+}
 
-    // Mostrar overlay atrás do modal
-    const overlay = document.getElementById('overlay');
-    overlay.style.display = 'block';
+function prevSlide() {
+  showSlide(current - 1);
 }
-function fecharModal() {
-    document.getElementById('modal').classList.remove('show');
-    document.getElementById('overlay').style.display = 'none';
-}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
 </script>
 
 </body>

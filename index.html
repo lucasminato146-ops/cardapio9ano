@@ -1,183 +1,175 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Star Trek: Sem Fronteiras - Apresentação</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, height=720">
+  <title>Apresentação – Star Trek: Sem Fronteiras</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", Arial, sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at center, #00111a 0%, #000000 100%);
-      color: #fff;
       overflow: hidden;
-      width: 1280px;
-      height: 720px;
+      background: radial-gradient(circle at center, #000010, #020218, #000);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      height: 100vh;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
 
     .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transform: scale(1.05);
-      transition: all 0.8s ease-in-out;
-      display: flex;
+      display: none;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 50px;
+      width: 1280px;
+      height: 720px;
+      padding: 40px;
+      box-sizing: border-box;
+      transition: opacity 0.6s ease-in-out;
     }
 
-    .slide.active {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 2;
-    }
-
-    h1 {
-      font-size: 54px;
-      margin-bottom: 25px;
-      color: #00ccff;
-      text-shadow: 0 0 15px #00ccff;
-    }
-
-    p {
-      font-size: 24px;
-      max-width: 900px;
-      line-height: 1.6;
-    }
-
-    .nav {
-      position: absolute;
-      bottom: 40px;
-      width: 100%;
-      text-align: center;
-      z-index: 10;
-    }
-
-    button {
-      background: linear-gradient(90deg, #00ccff, #0077ff);
-      border: none;
-      color: #fff;
-      padding: 12px 30px;
-      font-size: 20px;
-      margin: 0 15px;
-      cursor: pointer;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(0, 204, 255, 0.8);
-    }
-
-    footer {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    .fade-in {
-      animation: fadeIn 1s ease-in-out forwards;
+    .active {
+      display: flex;
+      animation: fadeIn 1s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1, h2 {
+      color: #00aaff;
+      text-shadow: 0 0 10px #00ffff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+      max-width: 900px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    button {
+      background-color: #00aaff;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0088cc;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <footer>Grupo 2 - Heitor e equipe</footer>
 
-  <div class="slide active fade-in">
+  <!-- SLIDE 1 – CAPA -->
+  <div class="slide active">
     <h1>Star Trek: Sem Fronteiras</h1>
-    <p>Apresentação e análise crítica do filme de ficção científica dirigido por Justin Lin.</p>
+    <h2>Análise e Resenha Crítica</h2>
+    <p><b>Aluno:</b> Heitor<br>
+       <b>Disciplina:</b> (adicione aqui)<br>
+       <b>Professor(a):</b> (adicione aqui)<br>
+       <b>Data:</b> (adicione aqui)</p>
   </div>
 
-  <div class="slide fade-in">
-    <h1>Introdução</h1>
-    <p>O filme “Star Trek: Sem Fronteiras” (2016) mostra a tripulação da USS Enterprise em uma nova jornada de exploração espacial, enfrentando desafios em uma região desconhecida do universo.</p>
+  <!-- SLIDE 2 – INTRODUÇÃO -->
+  <div class="slide">
+    <h2>Introdução</h2>
+    <p>
+      O filme <b>Star Trek: Sem Fronteiras</b>, dirigido por <b>Justin Lin</b> e lançado em <b>2016</b>,
+      é uma mistura de ação, aventura e ficção científica. Ele acompanha a tripulação da nave
+      <b>USS Enterprise</b> em uma nova missão, enfrentando uma ameaça misteriosa que desafia
+      a sobrevivência da Federação dos Planetas Unidos.
+    </p>
   </div>
 
-  <div class="slide fade-in">
-    <h1>Resumo</h1>
-    <p>Após um ataque surpresa, a tripulação fica isolada em um planeta distante. Unidos, eles precisam encontrar uma maneira de sobreviver e impedir uma ameaça que pode destruir a Federação.</p>
+  <!-- SLIDE 3 – RESUMO -->
+  <div class="slide">
+    <h2>Resumo</h2>
+    <p>
+      Durante uma missão de exploração em uma região desconhecida do espaço,
+      a Enterprise é atacada e destruída, forçando a tripulação a sobreviver em um planeta hostil.
+      Lá, eles enfrentam um inimigo poderoso chamado <b>Krall</b>, que tem um plano de vingança contra a Federação.
+    </p>
   </div>
 
-  <div class="slide fade-in">
-    <h1>Análise Crítica</h1>
-    <p>O filme se destaca pelos efeitos visuais, trilha sonora empolgante e pelo espírito de aventura. No entanto, o roteiro é previsível e alguns personagens são pouco desenvolvidos.</p>
+  <!-- SLIDE 4 – ANÁLISE CRÍTICA -->
+  <div class="slide">
+    <h2>Análise Crítica</h2>
+    <p>
+      O filme traz ótimos efeitos visuais e cenas de ação bem coreografadas.
+      O ponto forte é a valorização do trabalho em equipe e dos laços de amizade entre os personagens.
+      Por outro lado, o vilão poderia ter sido mais aprofundado em sua motivação.
+    </p>
   </div>
 
-  <div class="slide fade-in">
-    <h1>Conclusão</h1>
-    <p>“Star Trek: Sem Fronteiras” é uma ótima opção para quem gosta de ficção científica e ação. O longa reforça a importância da cooperação e da amizade em meio aos desafios.</p>
+  <!-- SLIDE 5 – CONCLUSÃO -->
+  <div class="slide">
+    <h2>Conclusão</h2>
+    <p>
+      <b>Star Trek: Sem Fronteiras</b> é um filme empolgante, que combina ação e reflexão sobre
+      a união e a exploração do desconhecido. Recomendo para quem gosta de ficção científica
+      e histórias que celebram a coragem e o trabalho em equipe.
+    </p>
   </div>
 
-  <div class="slide fade-in">
-    <h1>Curiosidades</h1>
-    <p>O filme homenageia Leonard Nimoy (Spock original) e Anton Yelchin, falecido pouco antes da estreia. Também celebra os 50 anos da franquia Star Trek.</p>
-  </div>
-
-  <div class="nav">
-    <button onclick="prevSlide()">⬅️ Anterior</button>
-    <button onclick="nextSlide()">Próximo ➡️</button>
+  <!-- CONTROLES -->
+  <div class="controls">
+    <button id="prev">⬅️ Anterior</button>
+    <button id="next">Próximo ➡️</button>
   </div>
 
   <script>
-    const slides = document.querySelectorAll(".slide");
+    const slides = document.querySelectorAll('.slide');
     let current = 0;
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        if (i === index) {
-          slide.classList.add("active");
-        }
+        slide.classList.toggle('active', i === index);
       });
     }
 
-    function nextSlide() {
-      if (current < slides.length - 1) {
-        current++;
+    document.getElementById('next').addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    // também permite mudar com setas do teclado
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      } else if (e.key === 'ArrowLeft') {
+        current = (current - 1 + slides.length) % slides.length;
         showSlide(current);
       }
-    }
-
-    function prevSlide() {
-      if (current > 0) {
-        current--;
-        showSlide(current);
-      }
-    }
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
     });
   </script>
+
 </body>
 </html>
-

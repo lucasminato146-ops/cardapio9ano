@@ -3,38 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autismo: Informação e Apoio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Meu Dashboard Personalizado de Vendas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-header h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #34495e;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2ecc71; /* Cor para valores positivos, pode mudar */
+            margin: 0;
+        }
+
+        .card .description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        /* Cores alternativas para diferentes cartões, se quiser variar */
+        .card.blue .value { color: #3498db; }
+        .card.orange .value { color: #f39c12; }
+        .card.red .value { color: #e74c3c; }
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Autismo: Informação e Apoio</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="autismo.html">O que é Autismo?</a></li>
-                <li><a href="sintomas.html">Sintomas & Diagnóstico</a></li>
-                <li><a href="mitos.html">Mitos & Verdades</a></li>
-                <li><a href="inclusao.html">Inclusão & Direitos</a></li>
-                <li><a href="recursos.html">Recursos</a></li>
-                <li><a href="depoimentos.html">Depoimentos</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="intro">
-            <h2>Bem-vindo!</h2>
-            <p>
-                Este site tem como objetivo informar, conscientizar e apoiar famílias, educadores e pessoas no espectro do autismo. Navegue pelas páginas e conheça mais sobre o autismo, direitos, mitos, recursos e histórias reais.
-            </p>
-        </section>
-        <img src="images/banner-autismo.jpg" alt="Banner sobre autismo" class="banner">
-    </main>
+    <div class="dashboard-header">
+        <h1>Dashboard Personalizado de Vendas</h1>
+        <p>Visão geral rápida das suas vendas de produtos digitais.</p>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Site Autismo • Desenvolvido por você</p>
-    </footer>
+    <div class="dashboard-grid">
+        <!-- Cartão de Vendas Hoje -->
+        <div class="card">
+            <h3>Vendas Hoje</h3>
+            <p class="value">R$ 450,00</p>
+            <p class="description">+12% em relação a ontem</p>
+        </div>
+
+        <!-- Cartão de Total Recebido (Mês) -->
+        <div class="card blue">
+            <h3>Total Recebido (Mês)</h3>
+            <p class="value">R$ 3.820,00</p>
+            <p class="description">Até a data atual</p>
+        </div>
+
+        <!-- Cartão de Produtos Vendidos -->
+        <div class="card orange">
+            <h3>Produtos Vendidos</h3>
+            <p class="value">45</p>
+            <p class="description">Unidades no mês</p>
+        </div>
+
+        <!-- Cartão de Taxa de Conversão -->
+        <div class="card red">
+            <h3>Taxa de Conversão</h3>
+            <p class="value">3.2%</p>
+            <p class="description">Visitantes para compradores</p>
+        </div>
+
+        <!-- Você pode adicionar mais cartões aqui! -->
+        <!-- Exemplo: -->
+        <div class="card">
+            <h3>Próximo Saque</h3>
+            <p class="value">R$ 1.200,00</p>
+            <p class="description">Disponível em 2 dias</p>
+        </div>
+    </div>
+
 </body>
 </html>

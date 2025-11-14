@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Dashboard Personalizado de Vendas</title>
+    <!-- CSS para estilizar o dashboard -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -55,11 +56,11 @@
             font-size: 1.3em;
         }
 
-        /* Adicionamos IDs aos elementos <p class="value"> para facilitar o JavaScript */
+        /* Adicionamos IDs aos elementos <p class="value"> e <p class="description"> para o JavaScript */
         .card .value {
             font-size: 2.5em;
             font-weight: bold;
-            color: #2ecc71; /* Cor para valores positivos, pode mudar */
+            color: #2ecc71; /* Cor para valores positivos padrão */
             margin: 0;
         }
 
@@ -120,8 +121,9 @@
         </div>
     </div>
 
+    <!-- JavaScript para preencher os dados dinamicamente -->
     <script>
-        // Dados de exemplo (imagine que isso viria dos seus relatórios da Kiwify)
+        // Dados de exemplo (imagine que no futuro isso viria de uma fonte externa, como seus relatórios da Kiwify)
         const dashboardData = {
             vendasHoje: 580.50,
             descVendasHoje: "+15% em relação a ontem",
@@ -135,7 +137,7 @@
             descProximoSaque: "Disponível em 3 dias"
         };
 
-        // Função para formatar valores monetários
+        // Função para formatar valores monetários para o Brasil (R$)
         function formatCurrency(value) {
             return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
@@ -145,21 +147,26 @@
             return value.toFixed(1) + '%';
         }
 
-        // Atualiza os elementos HTML com os dados
-        document.getElementById('vendasHoje').textContent = formatCurrency(dashboardData.vendasHoje);
-        document.getElementById('descVendasHoje').textContent = dashboardData.descVendasHoje;
+        // Esta função atualiza o conteúdo dos cartões com os dados do objeto dashboardData
+        function updateDashboard() {
+            document.getElementById('vendasHoje').textContent = formatCurrency(dashboardData.vendasHoje);
+            document.getElementById('descVendasHoje').textContent = dashboardData.descVendasHoje;
 
-        document.getElementById('totalRecebidoMes').textContent = formatCurrency(dashboardData.totalRecebidoMes);
-        document.getElementById('descTotalRecebidoMes').textContent = dashboardData.descTotalRecebidoMes;
+            document.getElementById('totalRecebidoMes').textContent = formatCurrency(dashboardData.totalRecebidoMes);
+            document.getElementById('descTotalRecebidoMes').textContent = dashboardData.descTotalRecebidoMes;
 
-        document.getElementById('produtosVendidos').textContent = dashboardData.produtosVendidos;
-        document.getElementById('descProdutosVendidos').textContent = dashboardData.descProdutosVendidos;
+            document.getElementById('produtosVendidos').textContent = dashboardData.produtosVendidos;
+            document.getElementById('descProdutosVendidos').textContent = dashboardData.descProdutosVendidos;
 
-        document.getElementById('taxaConversao').textContent = formatPercentage(dashboardData.taxaConversao);
-        document.getElementById('descTaxaConversao').textContent = dashboardData.descTaxaConversao;
-        
-        document.getElementById('proximoSaque').textContent = formatCurrency(dashboardData.proximoSaque);
-        document.getElementById('descProximoSaque').textContent = dashboardData.descProximoSaque;
+            document.getElementById('taxaConversao').textContent = formatPercentage(dashboardData.taxaConversao);
+            document.getElementById('descTaxaConversao').textContent = dashboardData.descTaxaConversao;
+            
+            document.getElementById('proximoSaque').textContent = formatCurrency(dashboardData.proximoSaque);
+            document.getElementById('descProximoSaque').textContent = dashboardData.descProximoSaque;
+        }
+
+        // Chama a função para atualizar o dashboard assim que a página é carregada
+        updateDashboard();
 
     </script>
 

@@ -55,6 +55,7 @@
             font-size: 1.3em;
         }
 
+        /* Adicionamos IDs aos elementos <p class="value"> para facilitar o JavaScript */
         .card .value {
             font-size: 2.5em;
             font-weight: bold;
@@ -86,39 +87,81 @@
         <!-- Cartão de Vendas Hoje -->
         <div class="card">
             <h3>Vendas Hoje</h3>
-            <p class="value">R$ 450,00</p>
-            <p class="description">+12% em relação a ontem</p>
+            <p class="value" id="vendasHoje">R$ 0,00</p>
+            <p class="description" id="descVendasHoje"></p>
         </div>
 
         <!-- Cartão de Total Recebido (Mês) -->
         <div class="card blue">
             <h3>Total Recebido (Mês)</h3>
-            <p class="value">R$ 3.820,00</p>
-            <p class="description">Até a data atual</p>
+            <p class="value" id="totalRecebidoMes">R$ 0,00</p>
+            <p class="description" id="descTotalRecebidoMes"></p>
         </div>
 
         <!-- Cartão de Produtos Vendidos -->
         <div class="card orange">
             <h3>Produtos Vendidos</h3>
-            <p class="value">45</p>
-            <p class="description">Unidades no mês</p>
+            <p class="value" id="produtosVendidos">0</p>
+            <p class="description" id="descProdutosVendidos"></p>
         </div>
 
         <!-- Cartão de Taxa de Conversão -->
         <div class="card red">
             <h3>Taxa de Conversão</h3>
-            <p class="value">3.2%</p>
-            <p class="description">Visitantes para compradores</p>
+            <p class="value" id="taxaConversao">0%</p>
+            <p class="description" id="descTaxaConversao"></p>
         </div>
 
-        <!-- Você pode adicionar mais cartões aqui! -->
-        <!-- Exemplo: -->
+        <!-- Cartão de Próximo Saque -->
         <div class="card">
             <h3>Próximo Saque</h3>
-            <p class="value">R$ 1.200,00</p>
-            <p class="description">Disponível em 2 dias</p>
+            <p class="value" id="proximoSaque">R$ 0,00</p>
+            <p class="description" id="descProximoSaque"></p>
         </div>
     </div>
+
+    <script>
+        // Dados de exemplo (imagine que isso viria dos seus relatórios da Kiwify)
+        const dashboardData = {
+            vendasHoje: 580.50,
+            descVendasHoje: "+15% em relação a ontem",
+            totalRecebidoMes: 4125.75,
+            descTotalRecebidoMes: "Até a data atual",
+            produtosVendidos: 52,
+            descProdutosVendidos: "Unidades no mês",
+            taxaConversao: 3.5,
+            descTaxaConversao: "Visitantes para compradores",
+            proximoSaque: 1500.00,
+            descProximoSaque: "Disponível em 3 dias"
+        };
+
+        // Função para formatar valores monetários
+        function formatCurrency(value) {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Função para formatar porcentagens
+        function formatPercentage(value) {
+            return value.toFixed(1) + '%';
+        }
+
+        // Atualiza os elementos HTML com os dados
+        document.getElementById('vendasHoje').textContent = formatCurrency(dashboardData.vendasHoje);
+        document.getElementById('descVendasHoje').textContent = dashboardData.descVendasHoje;
+
+        document.getElementById('totalRecebidoMes').textContent = formatCurrency(dashboardData.totalRecebidoMes);
+        document.getElementById('descTotalRecebidoMes').textContent = dashboardData.descTotalRecebidoMes;
+
+        document.getElementById('produtosVendidos').textContent = dashboardData.produtosVendidos;
+        document.getElementById('descProdutosVendidos').textContent = dashboardData.descProdutosVendidos;
+
+        document.getElementById('taxaConversao').textContent = formatPercentage(dashboardData.taxaConversao);
+        document.getElementById('descTaxaConversao').textContent = dashboardData.descTaxaConversao;
+        
+        document.getElementById('proximoSaque').textContent = formatCurrency(dashboardData.proximoSaque);
+        document.getElementById('descProximoSaque').textContent = dashboardData.descProximoSaque;
+
+    </script>
 
 </body>
 </html>

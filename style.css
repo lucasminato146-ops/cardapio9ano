@@ -1,41 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat', sans-serif;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
+
+    background: linear-gradient(
+        135deg,
+        #009739,
+        #0066cc,
+        #001f5c
+    );
+
+    padding:20px;
 }
 
 .card{
-    background:white;
+    width:450px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:25px;
     padding:30px;
-    border-radius:15px;
+
     text-align:center;
-    width:400px;
-    box-shadow:0 0 15px rgba(0,0,0,0.2);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3);
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+h1{
+    color:white;
+    font-size:42px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:20px;
 }
 
 .foto{
     width:100%;
-    border-radius:10px;
+    border-radius:20px;
+    margin-bottom:20px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.3);
 }
 
 .escudo{
-    width:120px;
-    margin:15px 0;
+    width:130px;
+    margin:10px auto 25px;
+    display:block;
+
+    transition:0.3s;
+}
+
+.escudo:hover{
+    transform:scale(1.1);
 }
 
 button{
-    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+
+    padding:14px 25px;
+
+    font-size:16px;
+    font-weight:700;
+
     cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+button:not(.comprar){
+    background:#ffcc00;
+    color:#000;
 }
 
 .descricao{
     display:none;
-    margin-top:20px;
+    margin-top:25px;
+
+    background:white;
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:left;
+
+    animation:aparecer .4s ease;
+}
+
+.descricao p{
+    color:#333;
+    line-height:1.8;
+    font-size:15px;
 }
 
 .comprar{
-    margin-top:15px;
+    width:100%;
+    margin-top:20px;
+
+    background:#009739;
+    color:white;
+
+    font-size:18px;
+    font-weight:800;
+}
+
+.comprar:hover{
+    background:#00b84d;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

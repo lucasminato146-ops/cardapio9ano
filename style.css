@@ -4,7 +4,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Montserrat',sans-serif;
 }
 
 body{
@@ -13,109 +13,128 @@ body{
     justify-content:center;
     align-items:center;
 
-    background: linear-gradient(
-        135deg,
-        #009739,
-        #0066cc,
-        #001f5c
-    );
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('fundo-estadio.jpg');
 
+    background-size:cover;
+    background-position:center;
     padding:20px;
 }
 
 .card{
-    width:450px;
-    background:rgba(255,255,255,0.12);
+    width:500px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
     backdrop-filter:blur(15px);
 
-    border:1px solid rgba(255,255,255,0.2);
-
-    border-radius:25px;
-    padding:30px;
-
-    text-align:center;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.3);
+    0 20px 50px rgba(0,0,0,.4);
 
-    transition:0.3s;
+    transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-}
-
-h1{
-    color:white;
-    font-size:42px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:3px;
-    margin-bottom:20px;
+    transform:translateY(-8px);
 }
 
 .foto{
     width:100%;
-    border-radius:20px;
-    margin-bottom:20px;
+    height:280px;
+    object-fit:cover;
+}
 
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.3);
+.conteudo{
+    padding:25px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+
+    background:#ffcc00;
+    color:#000;
+
+    padding:8px 18px;
+    border-radius:50px;
+
+    font-weight:700;
+    font-size:14px;
+
+    margin-bottom:15px;
 }
 
 .escudo{
-    width:130px;
-    margin:10px auto 25px;
-    display:block;
+    width:120px;
+    height:120px;
 
-    transition:0.3s;
+    object-fit:contain;
+
+    margin:-70px auto 15px;
+
+    background:white;
+    padding:10px;
+
+    border-radius:50%;
+
+    border:5px solid white;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.3);
 }
 
-.escudo:hover{
-    transform:scale(1.1);
+h1{
+    color:white;
+    font-size:40px;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-bottom:20px;
 }
 
-button{
+.info-btn{
+    background:#ffcc00;
+    color:black;
+
     border:none;
-    border-radius:12px;
+    border-radius:15px;
 
     padding:14px 25px;
 
     font-size:16px;
-    font-weight:700;
+    font-weight:800;
 
     cursor:pointer;
-
-    transition:0.3s;
+    transition:.3s;
 }
 
-button:hover{
+.info-btn:hover{
     transform:scale(1.05);
-}
-
-button:not(.comprar){
-    background:#ffcc00;
-    color:#000;
 }
 
 .descricao{
     display:none;
+
     margin-top:25px;
-
-    background:white;
-    border-radius:15px;
-
-    padding:20px;
-
     text-align:left;
 
-    animation:aparecer .4s ease;
+    background:white;
+    border-radius:20px;
+
+    padding:20px;
+}
+
+.descricao h2{
+    color:#009739;
+    margin-bottom:10px;
 }
 
 .descricao p{
-    color:#333;
     line-height:1.8;
-    font-size:15px;
+    color:#444;
 }
 
 .comprar{
@@ -125,8 +144,17 @@ button:not(.comprar){
     background:#009739;
     color:white;
 
+    border:none;
+    border-radius:15px;
+
+    padding:16px;
+
     font-size:18px;
     font-weight:800;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
 .comprar:hover{
@@ -136,8 +164,9 @@ button:not(.comprar){
 @keyframes aparecer{
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);

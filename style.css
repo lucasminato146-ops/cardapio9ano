@@ -1,1 +1,41 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
 
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:400px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+.foto{
+    width:100%;
+    border-radius:10px;
+}
+
+.escudo{
+    width:120px;
+    margin:15px 0;
+}
+
+button{
+    padding:12px 20px;
+    cursor:pointer;
+}
+
+.descricao{
+    display:none;
+    margin-top:20px;
+}
+
+.comprar{
+    margin-top:15px;
+}

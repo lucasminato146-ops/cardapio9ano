@@ -1,43 +1,82 @@
-<div class="card">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil Seleção Completa</title>
 
-    <div class="conteudo">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <div class="topo">
+    <div class="card">
 
-            <div class="badge">
-                ⚽ Copa do Mundo 2026
+        <div class="conteudo">
+
+            <div class="topo">
+
+                <div class="badge">
+                    ⚽ Copa do Mundo 2026
+                </div>
+
+                <!-- ESCUDO DO BRASIL -->
+                <img src="image-removebg-preview.png"
+                     class="escudo">
+
             </div>
 
-            <img src="image-removebg-preview.png"
-                 class="escudo">
+            <h1>BRASIL</h1>
 
-        </div>
+            <button id="infoBtn"
+                    class="info-btn"
+                    onclick="mostrarDescricao()">
+                Ver Informações
+            </button>
 
-        <h1>BRASIL</h1>
+            <div id="descricao" class="descricao">
 
-        <button id="infoBtn"
-                class="info-btn"
-                onclick="mostrarDescricao()">
-            Ver Informações
-        </button>
+                <h2>Seleção Brasileira</h2>
 
-        <div id="descricao" class="descricao">
+                <p>
+                    A Seleção Brasileira é a maior campeã da história da Copa do Mundo,
+                    com cinco títulos conquistados. Conhecida mundialmente pelo seu
+                    futebol ofensivo e habilidoso, revelou grandes craques como Pelé,
+                    Ronaldo, Ronaldinho e Neymar.
+                </p>
 
-            <h2>Seleção Brasileira</h2>
+                <a href="https://pay.kiwify.com.br/dx06Txl" target="_blank">
+                    <button class="comprar">
+                        Comprar Figurinhas
+                    </button>
+                </a>
 
-            <p>
-                A Seleção Brasileira é a maior campeã da história da Copa do Mundo,
-                com cinco títulos conquistados.
-            </p>
-
-            <a href="https://pay.kiwify.com.br/dx06Txl" target="_blank">
-                <button class="comprar">
-                    Comprar Figurinhas
-                </button>
-            </a>
+            </div>
 
         </div>
 
     </div>
 
-</div>
+    <script>
+        function mostrarDescricao() {
+
+            const descricao = document.getElementById("descricao");
+            const botao = document.getElementById("infoBtn");
+
+            descricao.style.display = "block";
+
+            botao.style.opacity = "0";
+
+            setTimeout(() => {
+                botao.style.display = "none";
+            }, 300);
+
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+adicione o script completo no meu script

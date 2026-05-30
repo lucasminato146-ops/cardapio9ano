@@ -9,9 +9,7 @@
 
 body{
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    padding:30px;
 
     background:
     linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
@@ -19,47 +17,41 @@ body{
 
     background-size:cover;
     background-position:center;
+}
 
-    padding:20px;
+h1{
+    color:white;
+    text-align:center;
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
 }
 
 .card{
     width:600px;
+    margin:25px auto;
 
     background:rgba(255,255,255,.10);
     backdrop-filter:blur(15px);
 
     border-radius:30px;
-
-    overflow:hidden;
-
     border:1px solid rgba(255,255,255,.15);
 
     box-shadow:
     0 20px 50px rgba(0,0,0,.4);
 
     transition:.4s;
+
+    overflow:hidden;
 }
 
 .card:hover{
     transform:translateY(-8px);
-}
-
-.foto{
-    width:90%;
-    max-width:420px;
-    height:auto;
-
-    display:block;
-    margin:25px auto;
-
-    object-fit:contain;
-
-    transition:.4s;
-}
-
-.foto:hover{
-    transform:scale(1.05);
 }
 
 .conteudo{
@@ -84,23 +76,13 @@ body{
     border-radius:50px;
 
     font-weight:700;
-    font-size:15px;
 }
 
 .escudo{
-    width:100px;
-    height:100px;
-
-    background:white;
-
-    padding:10px;
-
-    border-radius:50%;
+    width:90px;
+    height:90px;
 
     object-fit:contain;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.3);
 
     transition:.3s;
 }
@@ -109,16 +91,10 @@ body{
     transform:scale(1.1);
 }
 
-h1{
+.card h1{
     color:white;
-
-    font-size:42px;
-
-    font-weight:800;
-
-    margin-bottom:25px;
-
-    text-transform:uppercase;
+    font-size:38px;
+    margin-bottom:20px;
 }
 
 .info-btn{
@@ -136,9 +112,7 @@ h1{
 
     cursor:pointer;
 
-    transition:
-    transform .3s,
-    opacity .3s;
+    transition:.3s;
 }
 
 .info-btn:hover{
@@ -163,13 +137,13 @@ h1{
 
 .descricao h2{
     color:#009739;
+    text-align:left;
     margin-bottom:10px;
 }
 
 .descricao p{
     color:#444;
     line-height:1.8;
-    font-size:16px;
 }
 
 .comprar{
@@ -196,11 +170,9 @@ h1{
 
 .comprar:hover{
     background:#00b84d;
-    transform:scale(1.02);
 }
 
 @keyframes aparecer{
-
     from{
         opacity:0;
         transform:translateY(20px);
@@ -210,21 +182,4 @@ h1{
         opacity:1;
         transform:translateY(0);
     }
-
-}
-
-@media (max-width: 700px){
-
-    .card{
-        width:95%;
-    }
-
-    h1{
-        font-size:32px;
-    }
-
-    .foto{
-        width:95%;
-    }
-
 }

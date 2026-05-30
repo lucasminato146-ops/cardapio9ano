@@ -11,7 +11,10 @@
 
     <div class="card">
 
-        <img src="selecao-brasil.jpg" alt="Seleção Brasileira" class="foto">
+        <!-- FOTO PRINCIPAL DA SELEÇÃO -->
+        <img src="image-removebg-preview.png"
+             alt="Seleção Brasileira"
+             class="foto">
 
         <div class="conteudo">
 
@@ -21,13 +24,18 @@
                     ⚽ Copa do Mundo 2026
                 </div>
 
-                <img src="image-removebg-preview.png" alt="Escudo do Brasil" class="escudo">
+                <!-- ESCUDO -->
+                <img src="escudo-brasil.png"
+                     alt="Escudo do Brasil"
+                     class="escudo">
 
             </div>
 
-            <h1>BRASIL seleção completa</h1>
+            <h1>BRASIL</h1>
 
-            <button id="infoBtn" class="info-btn" onclick="mostrarDescricao()">
+            <button id="infoBtn"
+                    class="info-btn"
+                    onclick="mostrarDescricao()">
                 Ver Informações
             </button>
 
@@ -36,9 +44,10 @@
                 <h2>Seleção Brasileira</h2>
 
                 <p>
-                    A Seleção Brasileira é a maior campeã da história da Copa do Mundo,
-                    com cinco títulos conquistados. Conhecida mundialmente pelo seu
-                    futebol ofensivo e habilidoso, revelou lendas como Pelé,
+                    A Seleção Brasileira é a maior campeã da história da
+                    Copa do Mundo, com cinco títulos conquistados.
+                    Reconhecida mundialmente pelo seu futebol ofensivo e
+                    habilidoso, revelou grandes craques como Pelé,
                     Ronaldo, Ronaldinho e Neymar.
                 </p>
 
@@ -54,7 +63,24 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function mostrarDescricao() {
+
+            const descricao =
+                document.getElementById("descricao");
+
+            const botao =
+                document.getElementById("infoBtn");
+
+            descricao.style.display = "block";
+
+            botao.style.opacity = "0";
+
+            setTimeout(() => {
+                botao.style.display = "none";
+            }, 300);
+        }
+    </script>
 
 </body>
 </html>
